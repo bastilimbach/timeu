@@ -13,6 +13,8 @@
 		FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */; };
 		FDD678821F7D93E7002F4D33 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD678801F7D93E7002F4D33 /* Cartography.framework */; };
 		FDD678831F7D93E7002F4D33 /* ESTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */; };
+		FDD678851F7D944E002F4D33 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678841F7D944E002F4D33 /* HomeVC.swift */; };
+		FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678871F7D9616002F4D33 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FDD678801F7D93E7002F4D33 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESTabBarController.framework; path = Carthage/Build/iOS/ESTabBarController.framework; sourceTree = "<group>"; };
+		FDD678841F7D944E002F4D33 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		FDD678871F7D9616002F4D33 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		FDD678681F7D9051002F4D33 /* Timeu */ = {
 			isa = PBXGroup;
 			children = (
+				FDD678861F7D960D002F4D33 /* Helper */,
 				FDD6787B1F7D90A3002F4D33 /* Controller */,
 				FDD678691F7D9051002F4D33 /* AppDelegate.swift */,
 				FDD678701F7D9051002F4D33 /* Assets.xcassets */,
@@ -72,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
+				FDD678841F7D944E002F4D33 /* HomeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -83,6 +89,14 @@
 				FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDD678861F7D960D002F4D33 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FDD678871F7D9616002F4D33 /* Extensions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD678851F7D944E002F4D33 /* HomeVC.swift in Sources */,
 				FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */,
 				FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */,
+				FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
