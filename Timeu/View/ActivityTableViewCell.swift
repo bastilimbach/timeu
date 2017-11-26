@@ -8,7 +8,7 @@
 
 import UIKit
 import SwipeCellKit
-import Cartography
+import SnapKit
 
 class ActivityTableViewCell: SwipeTableViewCell {
 
@@ -66,21 +66,17 @@ class ActivityTableViewCell: SwipeTableViewCell {
     }
 
     func setupConstrains() {
-        constrain(card) { card in
-            card.center == card.superview!.center
-            card.edges == inset(card.superview!.edges, cardPadding / 2, cardPadding, cardPadding / 2, cardPadding)
+        card.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(cardPadding / 2, cardPadding, cardPadding / 2, cardPadding))
         }
-
-        constrain(activityLabel, activityTime) { activityLabel, activityTime in
-            let container = activityLabel.superview!
-
-            activityLabel.top == container.top + 10
-            activityLabel.right == container.right - 10
-            activityLabel.left == container.left + 10
-            align(left: [activityLabel, activityTime])
-            align(right: [activityLabel, activityTime])
-            distribute(by: 5, vertically: [activityLabel, activityTime])
-            activityTime.bottom == container.bottom - 10
+        
+        activityLabel.snp.makeConstraints { make in
+            make.left.top.right.equalToSuperview().inset(10)
+        }
+        
+        activityTime.snp.makeConstraints { make in
+            make.left.bottom.right.equalToSuperview().inset(10)
+            make.top.equalTo(activityLabel.snp.bottom).offset(5)
         }
     }
 

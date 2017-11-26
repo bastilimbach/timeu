@@ -20,7 +20,6 @@
 		FDD678711F7D9051002F4D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD678701F7D9051002F4D33 /* Assets.xcassets */; };
 		FDD678741F7D9051002F4D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD678721F7D9051002F4D33 /* LaunchScreen.storyboard */; };
 		FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */; };
-		FDD678821F7D93E7002F4D33 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD678801F7D93E7002F4D33 /* Cartography.framework */; };
 		FDD678831F7D93E7002F4D33 /* ESTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */; };
 		FDD678851F7D944E002F4D33 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678841F7D944E002F4D33 /* HomeVC.swift */; };
 		FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678871F7D9616002F4D33 /* Extensions.swift */; };
@@ -56,7 +55,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */,
-				FDD678821F7D93E7002F4D33 /* Cartography.framework in Frameworks */,
 				FDD678831F7D93E7002F4D33 /* ESTabBarController.framework in Frameworks */,
 				FD4BB72B1F7E62C60078B749 /* SwipeCellKit.framework in Frameworks */,
 			);
@@ -236,7 +234,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Cartography.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ESTabBarController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwipeCellKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Cartography
+import SnapKit
 
 class ActivityTableViewHeader: UIView {
 
@@ -42,8 +42,8 @@ class ActivityTableViewHeader: UIView {
     }
 
     func setupConstraints() {
-        constrain(headerLabel) { headerLabel in
-            headerLabel.edges == inset(headerLabel.superview!.edges, 20, 20, 5, 20)
+        headerLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(20, 20, 5, 20))
         }
     }
 
