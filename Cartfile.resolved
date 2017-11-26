@@ -1,3 +1,4 @@
+github "SnapKit/SnapKit" "4.0.0"
 github "SwipeCellKit/SwipeCellKit" "1.9.1"
-github "eggswift/ESTabBarController" "v2.6"
-github "robb/Cartography" "2.0.0"
+github "eggswift/ESTabBarController" "2.6"
+github "robb/Cartography" "2.1.0"
