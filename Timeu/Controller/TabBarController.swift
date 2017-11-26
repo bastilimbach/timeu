@@ -15,11 +15,16 @@ class TabBarController: ESTabBarController {
         super.viewDidLoad()
 
         let homeVC = HomeVC()
-        homeVC.tabBarItem = ESTabBarItem(title: "Home", image: nil, selectedImage: nil, tag: 1)
+//        homeVC.tabBarItem = ESTabBarItem(title: "Home", image: nil, selectedImage: nil, tag: 1)
+        let contentView = ESTabBarItemContentView()
+        contentView.backdropColor = .black
+        contentView.iconColor = .red
+
+        homeVC.tabBarItem = ESTabBarItem(contentView, title: "Test", image: UIImage(named: "testIcon")!, selectedImage: nil, tag: 1)
 
         let controllers = [homeVC]
 
-        let _ = controllers.map { $0.view.backgroundColor = UIColor.timeuGray }
+        _ = controllers.map { $0.view.backgroundColor = UIColor.timeuGray }
         viewControllers = controllers.map { UINavigationController(rootViewController: $0) }
         // Do any additional setup after loading the view.
     }
@@ -28,7 +33,6 @@ class TabBarController: ESTabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
