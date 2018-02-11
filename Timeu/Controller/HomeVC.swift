@@ -7,37 +7,30 @@
 //
 
 import UIKit
-import SwipeCellKit
+import SnapKit
 
-class HomeVC: UITableViewController {
+class HomeVC: UIViewController {
 
-    var timesheetActivities: [[Activity]]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private let tableView: ActivityTableView = {
+        let tableView = ActivityTableView()
+        tableView.refreshControl?.addTarget(self, action: #selector(getTimesheet), for: .valueChanged)
+        return tableView
+    }()
 
-    var timesheetSections: [Date]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-
-    let cellIdentifier = "cell"
+    let tableViewDatasource = ActivityTableViewDatasource()
+    let tableViewDelegate = ActivityTableViewDelegate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("HomeVCTitle", comment: "")
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedSectionHeaderHeight = 50
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        tableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        view.addSubview(tableView)
 
-        refreshControl = UIRefreshControl()
-        refreshControl?.attributedTitle = NSAttributedString(string: "ActivityRefreshConrolText".localized())
-        refreshControl?.addTarget(self, action: #selector(getTimesheet), for: .valueChanged)
+        tableView.dataSource = self.tableViewDatasource
+        tableView.delegate = self.tableViewDelegate
+
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         getTimesheet()
     }
 
@@ -65,94 +58,12 @@ class HomeVC: UITableViewController {
                 }
             }
 
-            self.timesheetActivities = tempTimesheetActivities
-            self.timesheetSections = tempTimesheetSections
+            self.tableViewDatasource.timesheetActivities = tempTimesheetActivities
+            self.tableViewDatasource.timesheetSections = tempTimesheetSections
+            self.tableView.reloadData()
             refreshControl?.endRefreshing()
         }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return timesheetSections?.count ?? 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timesheetActivities?[section].count ?? 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ActivityTableViewCell
-
-        guard let activity = timesheetActivities?[indexPath.section][indexPath.row] else { return cell }
-
-        let timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = .short
-
-        let text = activity.description
-        let startTime = timeFormatter.string(from: activity.startDateTime)
-        let endTime = timeFormatter.string(from: activity.endDateTime)
-
-        cell.activityLabel.text = text
-        cell.activityTime.text = "\(startTime) - \(endTime)"
-        cell.delegate = self
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = ActivityTableViewHeader()
-        guard let sectionDate = timesheetSections?[section] else { return header }
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
-
-        let today = Date()
-        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
-
-//        let dateComparison = Calendar.current.compare(lastDate, to: activity.startDateTime, toGranularity: .day)
-
-        switch sectionDate {
-        case today:
-            header.sectionText = "Today".localized()
-        case yesterday:
-            header.sectionText = "Yesterday".localized()
-        default:
-            header.sectionText = dateFormatter.string(from: sectionDate)
-        }
-
-        return header
-    }
-
+    
 }
 
-extension HomeVC: SwipeTableViewCellDelegate {
-
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        let deleteAction = SwipeAction(style: .destructive, title: "DeleteActionTitle".localized()) { _, _ in
-            print("Delete action triggerd!")
-        }
-
-        let duplicateAction = SwipeAction(style: .default, title: "DuplicateActionTitle".localized()) { _, _ in
-            print("Save action triggerd!")
-        }
-        duplicateAction.backgroundColor = .timeuGray
-        duplicateAction.textColor = .lightGray
-
-        switch orientation {
-        case .right:
-            return [deleteAction]
-        case .left:
-            return [duplicateAction]
-        }
-
-    }
-
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        guard orientation == .left else { return SwipeTableOptions() }
-        var options = SwipeTableOptions()
-        options.expansionStyle = SwipeExpansionStyle.selection
-        options.backgroundColor = .clear
-        return options
-    }
-
-}

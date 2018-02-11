@@ -8,16 +8,16 @@
 
 import UIKit
 
-extension UIColor {
-    /// Timeu background color
-    class var timeuGray: UIColor {
-        return UIColor.init(red: 244/255, green: 244/255, blue: 247/255, alpha: 1)
-    }
-}
-
 extension String {
     /// Returns the corresponding NSLocalizedString
     public func localized() -> String {
         return NSLocalizedString(self, comment: "")
+    }
+}
+
+extension UIColor {
+    /// RGBA
+    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
     }
 }

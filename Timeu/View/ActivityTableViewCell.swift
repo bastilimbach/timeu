@@ -23,24 +23,31 @@ class ActivityTableViewCell: SwipeTableViewCell {
         return view
     }()
 
-    open var activityLabel: UILabel = {
+    let activityLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
-        label.textColor = UIColor.init(red: 142/255, green: 151/255, blue: 185/255, alpha: 1)
+        label.textColor = .timeuTextBlack
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.numberOfLines = 2
         label.text = "App - Onboarding Screens"
         return label
     }()
 
-    open var activityTime: UILabel = {
+    let activityTime: UILabel = {
         let label = UILabel()
         label.sizeToFit()
-        label.textColor = UIColor.lightGray
+        label.textColor = .timeuSubheaderColor
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.numberOfLines = 1
         label.text = "12:30 - 18:00 (Novoferm)"
         return label
+    }()
+
+    private let disclosureIndicator: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "disclosureIndicator")
+        imageView.contentMode = .center
+        return imageView
     }()
 
     private let cardPadding: CGFloat = 20
@@ -59,15 +66,16 @@ class ActivityTableViewCell: SwipeTableViewCell {
         setupConstrains()
     }
 
-    func addViews() {
+    private func addViews() {
         contentView.addSubview(card)
         card.addSubview(activityLabel)
         card.addSubview(activityTime)
+        card.addSubview(disclosureIndicator)
     }
 
-    func setupConstrains() {
+    private func setupConstrains() {
         card.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(cardPadding / 2, cardPadding, cardPadding / 2, cardPadding))
+            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(cardPadding / 3, cardPadding, cardPadding / 3, cardPadding))
         }
         
         activityLabel.snp.makeConstraints { make in
@@ -77,6 +85,12 @@ class ActivityTableViewCell: SwipeTableViewCell {
         activityTime.snp.makeConstraints { make in
             make.left.bottom.right.equalToSuperview().inset(10)
             make.top.equalTo(activityLabel.snp.bottom).offset(5)
+        }
+
+        disclosureIndicator.snp.makeConstraints { make in
+            make.width.height.equalTo(10)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().inset(10)
         }
     }
 

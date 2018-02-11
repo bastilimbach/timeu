@@ -13,7 +13,14 @@
 		FD3E3E7C1F83E37100B5D291 /* KimaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3E3E7B1F83E37100B5D291 /* KimaiAPI.swift */; };
 		FD4BB7271F7E4E760078B749 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */; };
 		FD4BB72B1F7E62C60078B749 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BB72A1F7E62C60078B749 /* SwipeCellKit.framework */; };
+		FD6B0D22202E185000269742 /* ActivityTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D21202E185000269742 /* ActivityTableView.swift */; };
+		FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */; };
+		FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */; };
+		FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */; };
+		FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */; };
+		FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */; };
 		FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C27321FCB4DAE00B27803 /* SnapKit.framework */; };
+		FDABA50620139C370051A32E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA50520139C370051A32E /* Colors.swift */; };
 		FDB0BF551F81245C005AAA0F /* ActivityTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */; };
 		FDB0BF581F814CBB005AAA0F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0BF571F814CBB005AAA0F /* Activity.swift */; };
 		FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678691F7D9051002F4D33 /* AppDelegate.swift */; };
@@ -34,7 +41,14 @@
 		FD3E3E7B1F83E37100B5D291 /* KimaiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KimaiAPI.swift; sourceTree = "<group>"; };
 		FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		FD4BB72A1F7E62C60078B749 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
+		FD6B0D21202E185000269742 /* ActivityTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableView.swift; sourceTree = "<group>"; };
+		FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDatasource.swift; sourceTree = "<group>"; };
+		FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
+		FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsTableViewCell.swift; sourceTree = "<group>"; };
+		FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewDatasource.swift; sourceTree = "<group>"; };
+		FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FD7C27321FCB4DAE00B27803 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		FDABA50520139C370051A32E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewHeader.swift; sourceTree = "<group>"; };
 		FDB0BF571F814CBB005AAA0F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FDD678661F7D9051002F4D33 /* Timeu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,8 +80,11 @@
 		FD4BB7251F7E4E390078B749 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD6B0D21202E185000269742 /* ActivityTableView.swift */,
 				FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */,
 				FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */,
+				FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */,
+				FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -78,6 +95,8 @@
 				FDB0BF571F814CBB005AAA0F /* Activity.swift */,
 				FD3E3E791F82F92900B5D291 /* User.swift */,
 				FD3E3E7B1F83E37100B5D291 /* KimaiAPI.swift */,
+				FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */,
+				FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,8 +137,9 @@
 		FDD6787B1F7D90A3002F4D33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
 				FDD678841F7D944E002F4D33 /* HomeVC.swift */,
+				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
+				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
 				FD3E3E771F82F4CF00B5D291 /* NetworkController.swift */,
 			);
 			path = Controller;
@@ -140,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD678871F7D9616002F4D33 /* Extensions.swift */,
+				FDABA50520139C370051A32E /* Colors.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -155,7 +176,6 @@
 				FDD678631F7D9051002F4D33 /* Frameworks */,
 				FDD678641F7D9051002F4D33 /* Resources */,
 				FDD6787E1F7D9387002F4D33 /* ShellScript */,
-				FD5D8B7B1F92CFC3004E7F20 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -215,19 +235,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FD5D8B7B1F92CFC3004E7F20 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"swiftlint\"\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
 		FDD6787E1F7D9387002F4D33 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,11 +259,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD3E3E781F82F4CF00B5D291 /* NetworkController.swift in Sources */,
+				FDABA50620139C370051A32E /* Colors.swift in Sources */,
 				FDD678851F7D944E002F4D33 /* HomeVC.swift in Sources */,
+				FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */,
+				FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */,
+				FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */,
 				FDB0BF551F81245C005AAA0F /* ActivityTableViewHeader.swift in Sources */,
 				FDB0BF581F814CBB005AAA0F /* Activity.swift in Sources */,
 				FD3E3E7C1F83E37100B5D291 /* KimaiAPI.swift in Sources */,
+				FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */,
+				FD6B0D22202E185000269742 /* ActivityTableView.swift in Sources */,
 				FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */,
+				FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */,
 				FD3E3E7A1F82F92900B5D291 /* User.swift in Sources */,
 				FD4BB7271F7E4E760078B749 /* ActivityTableViewCell.swift in Sources */,
 				FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */,

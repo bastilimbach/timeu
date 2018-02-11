@@ -11,7 +11,7 @@ import SnapKit
 
 class ActivityTableViewHeader: UIView {
 
-    open var sectionText: String? {
+    var sectionText: String? {
         get {
             return headerLabel.text
         }
@@ -23,7 +23,7 @@ class ActivityTableViewHeader: UIView {
     private var headerLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
-        label.textColor = UIColor.lightGray
+        label.textColor = .timeuTableViewHeaderColor
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         return label
@@ -37,11 +37,11 @@ class ActivityTableViewHeader: UIView {
         setupConstraints()
     }
 
-    func addViews() {
+    private func addViews() {
         addSubview(headerLabel)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         headerLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsetsMake(20, 20, 5, 20))
         }

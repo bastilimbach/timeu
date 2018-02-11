@@ -45,8 +45,6 @@ class NetworkController {
             decoder.dateDecodingStrategy = .secondsSince1970
             let decodedResult = try? decoder.decode(KimaiTimesheetResult.self, from: data)
 
-            dump(decodedResult)
-
             if let result = decodedResult?.result {
                 if result.success {
                     for activity in result.items {
