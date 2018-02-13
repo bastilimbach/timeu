@@ -15,20 +15,20 @@ class TabBarController: ESTabBarController {
         super.viewDidLoad()
 
         let homeVC = HomeVC()
-        let navController = UINavigationController(rootViewController: homeVC)
-        navController.navigationBar.prefersLargeTitles = true
+        let dummyVC = HomeVC()
+        let settingsVC = HomeVC()
 
-//        homeVC.tabBarItem = ESTabBarItem(title: "Home", image: nil, selectedImage: nil, tag: 1)
-        let contentView = ESTabBarItemContentView()
-        contentView.backdropColor = .black
-        contentView.iconColor = .red
+        homeVC.title = NSLocalizedString("HomeVCTitle", comment: "")
+        homeVC.tabBarItem = ESTabBarItem(ESTabBarItemContentView(), title: "Home", image: UIImage(named: "testIcon"))
+        dummyVC.tabBarItem = ESTabBarItem(TabBarAddItemView(), title: nil, image: UIImage(named: "addActivityIcon"))
+        settingsVC.tabBarItem = ESTabBarItem(ESTabBarItemContentView(), title: "Settings", image: UIImage(named: "testIcon"))
 
-        homeVC.tabBarItem = ESTabBarItem(contentView, title: "Test", image: UIImage(named: "testIcon")!, selectedImage: nil, tag: 1)
+        let homeNavigationController = UINavigationController(rootViewController: homeVC)
+        homeNavigationController.navigationBar.prefersLargeTitles = true
 
-        let controllers = [homeVC]
+        let _ = [homeVC, dummyVC, settingsVC].map { $0.view.backgroundColor = .timeuGray }
 
-        _ = controllers.map { $0.view.backgroundColor = .timeuGray }
-        viewControllers = [navController]
+        viewControllers = [homeNavigationController, dummyVC, settingsVC]
     }
 
     override func didReceiveMemoryWarning() {

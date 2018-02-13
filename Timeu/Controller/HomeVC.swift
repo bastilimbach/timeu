@@ -22,7 +22,6 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("HomeVCTitle", comment: "")
         view.addSubview(tableView)
 
         tableView.dataSource = self.tableViewDatasource
