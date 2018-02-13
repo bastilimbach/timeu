@@ -50,11 +50,16 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
         let deleteAction = SwipeAction(style: .destructive, title: "DeleteActionTitle".localized()) { _, _ in
             print("Delete action triggerd!")
         }
+        deleteAction.image = UIImage(named: "testIcon")
+        deleteAction.backgroundColor = .timeuGray
+        deleteAction.highlightedBackgroundColor = .timeuGray
+        deleteAction.textColor = .lightGray
 
         let duplicateAction = SwipeAction(style: .default, title: "DuplicateActionTitle".localized()) { _, _ in
             print("Save action triggerd!")
         }
         duplicateAction.backgroundColor = .timeuGray
+        duplicateAction.highlightedBackgroundColor = .timeuGray
         duplicateAction.textColor = .lightGray
 
         switch orientation {
@@ -69,7 +74,7 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         guard orientation == .left else { return SwipeTableOptions() }
         var options = SwipeTableOptions()
-        options.expansionStyle = SwipeExpansionStyle.selection
+        options.expansionStyle = .selection
         options.backgroundColor = .clear
         return options
     }
