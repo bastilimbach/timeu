@@ -18,10 +18,10 @@ class TabBarController: ESTabBarController {
         let dummyVC = HomeVC()
         let settingsVC = HomeVC()
 
-        homeVC.title = NSLocalizedString("HomeVCTitle", comment: "")
-        homeVC.tabBarItem = ESTabBarItem(ESTabBarItemContentView(), title: "Home", image: UIImage(named: "testIcon"))
+        homeVC.navigationItem.title = NSLocalizedString("HomeVCTitle", comment: "")
+        homeVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "timesheetIcon"))
         dummyVC.tabBarItem = ESTabBarItem(TabBarAddItemView(), title: nil, image: UIImage(named: "addActivityIcon"))
-        settingsVC.tabBarItem = ESTabBarItem(ESTabBarItemContentView(), title: "Settings", image: UIImage(named: "testIcon"))
+        settingsVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "settingsIcon"))
 
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
         homeNavigationController.navigationBar.prefersLargeTitles = true
