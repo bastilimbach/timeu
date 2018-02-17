@@ -11,8 +11,11 @@ import SnapKit
 
 class HomeVC: UIViewController {
 
-    private let tableView: ActivityTableView = {
+    private lazy var tableView: ActivityTableView = {
         let tableView = ActivityTableView()
+        tableView.dataSource = tableViewDatasource
+        tableView.delegate = tableViewDelegate
+//        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         tableView.refreshControl?.addTarget(self, action: #selector(getTimesheet), for: .valueChanged)
         return tableView
     }()
@@ -24,9 +27,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
 
-        tableView.dataSource = self.tableViewDatasource
-        tableView.delegate = self.tableViewDelegate
-
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -34,7 +34,7 @@ class HomeVC: UIViewController {
     }
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {
-        NetworkController.shared.getTimesheetFor(user: User(id: 538326004, userName: "gam_limbach", firstName: nil, lastName: nil), token: "4afb8fa15ac574e8a49dc611d") { (activities, error) in
+        NetworkController.shared.getTimesheetFor(user: User(id: 538326004, userName: "gam_limbach", firstName: nil, lastName: nil), token: "4afb8fa15ac574e8a49dc611d") { [weak self] (activities, error) in
             guard let activities = activities else { print(error!); return }
 
             let dateFormatter = DateFormatter()
@@ -57,10 +57,10 @@ class HomeVC: UIViewController {
                 }
             }
 
-            self.tableViewDatasource.timesheetActivities = tempTimesheetActivities
-            self.tableViewDatasource.timesheetSections = tempTimesheetSections
-            self.tableView.reloadData()
-            refreshControl?.endRefreshing()
+            self?.tableViewDatasource.timesheetActivities = tempTimesheetActivities
+            self?.tableViewDatasource.timesheetSections = tempTimesheetSections
+            self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
         }
     }
     
