@@ -18,6 +18,9 @@
 		FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */; };
 		FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */; };
 		FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */; };
+		FD6FC36E203879BD001012CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC36D203879BD001012CA /* LoginViewController.swift */; };
+		FD6FC37020387B8E001012CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC36F20387B8E001012CA /* LoginView.swift */; };
+		FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */; };
 		FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */; };
 		FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */; };
 		FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C27321FCB4DAE00B27803 /* SnapKit.framework */; };
@@ -48,6 +51,9 @@
 		FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDatasource.swift; sourceTree = "<group>"; };
 		FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
 		FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsTableViewCell.swift; sourceTree = "<group>"; };
+		FD6FC36D203879BD001012CA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FD6FC36F20387B8E001012CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
 		FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewDatasource.swift; sourceTree = "<group>"; };
 		FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FD7C27321FCB4DAE00B27803 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 		FD4BB7251F7E4E390078B749 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD6FC36B20387948001012CA /* Login */,
 				FD6FC36720387764001012CA /* Timesheet */,
 				FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */,
 				FDEC4A0320338F2300944FAE /* TabBarItemView.swift */,
@@ -110,6 +117,23 @@
 				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
 			);
 			path = Timesheet;
+			sourceTree = "<group>";
+		};
+		FD6FC36B20387948001012CA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FD6FC36F20387B8E001012CA /* LoginView.swift */,
+				FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FD6FC36C2038797A001012CA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FD6FC36D203879BD001012CA /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		FDB0BF561F814CA9005AAA0F /* Model */ = {
@@ -160,6 +184,7 @@
 		FDD6787B1F7D90A3002F4D33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FD6FC36C2038797A001012CA /* Login */,
 				FD6FC36A2038787C001012CA /* Timesheet */,
 				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
 				FD3E3E771F82F4CF00B5D291 /* NetworkController.swift */,
@@ -288,13 +313,16 @@
 				FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */,
 				FD45099E2031E90000CA53B9 /* TabBarAddItemView.swift in Sources */,
 				FDB0BF551F81245C005AAA0F /* ActivityTableViewHeader.swift in Sources */,
+				FD6FC36E203879BD001012CA /* LoginViewController.swift in Sources */,
 				FDB0BF581F814CBB005AAA0F /* Activity.swift in Sources */,
 				FD3E3E7C1F83E37100B5D291 /* KimaiAPI.swift in Sources */,
 				FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */,
 				FD6B0D22202E185000269742 /* ActivityTableView.swift in Sources */,
 				FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */,
 				FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */,
+				FD6FC37020387B8E001012CA /* LoginView.swift in Sources */,
 				FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */,
+				FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */,
 				FD3E3E7A1F82F92900B5D291 /* User.swift in Sources */,
 				FD4BB7271F7E4E760078B749 /* ActivityTableViewCell.swift in Sources */,
 				FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */,
