@@ -62,21 +62,31 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
         duplicateAction.backgroundColor = .timeuGray
         duplicateAction.highlightedBackgroundColor = .timeuGray
         duplicateAction.textColor = .lightGray
+        duplicateAction.font = .systemFont(ofSize: 8)
+
 
         switch orientation {
         case .right:
             return [deleteAction]
         case .left:
-            return [duplicateAction]
+            return [duplicateAction, duplicateAction]
         }
 
     }
 
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        guard orientation == .left else { return SwipeTableOptions() }
         var options = SwipeTableOptions()
-        options.expansionStyle = .selection
+        options.transitionStyle = .drag
         options.backgroundColor = .clear
+
+        switch orientation {
+        case .right:
+            options.expansionStyle = .destructiveAfterFill
+        case .left:
+            options.expansionStyle = .selection
+            options.expansionDelegate = ScaleAndAlphaExpansion.default
+        }
+
         return options
     }
 
