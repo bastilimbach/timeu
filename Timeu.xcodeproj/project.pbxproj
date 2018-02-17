@@ -84,15 +84,32 @@
 		FD4BB7251F7E4E390078B749 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD6FC36720387764001012CA /* Timesheet */,
+				FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */,
+				FDEC4A0320338F2300944FAE /* TabBarItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD6FC36720387764001012CA /* Timesheet */ = {
+			isa = PBXGroup;
+			children = (
 				FD6B0D21202E185000269742 /* ActivityTableView.swift */,
 				FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */,
 				FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */,
 				FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */,
 				FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */,
-				FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */,
-				FDEC4A0320338F2300944FAE /* TabBarItemView.swift */,
 			);
-			path = View;
+			path = Timesheet;
+			sourceTree = "<group>";
+		};
+		FD6FC36A2038787C001012CA /* Timesheet */ = {
+			isa = PBXGroup;
+			children = (
+				FDD678841F7D944E002F4D33 /* HomeVC.swift */,
+				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
+			);
+			path = Timesheet;
 			sourceTree = "<group>";
 		};
 		FDB0BF561F814CA9005AAA0F /* Model */ = {
@@ -143,8 +160,7 @@
 		FDD6787B1F7D90A3002F4D33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FDD678841F7D944E002F4D33 /* HomeVC.swift */,
-				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
+				FD6FC36A2038787C001012CA /* Timesheet */,
 				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
 				FD3E3E771F82F4CF00B5D291 /* NetworkController.swift */,
 			);
