@@ -10,13 +10,23 @@ import UIKit
 import ESTabBarController
 
 class TabBarController: ESTabBarController {
+    private let user: User
+
+    init(currentUser: User) {
+        user = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let homeVC = HomeVC()
-        let dummyVC = HomeVC()
-        let settingsVC = HomeVC()
+        let homeVC = HomeVC(currentUser: user)
+        let dummyVC = HomeVC(currentUser: user)
+        let settingsVC = HomeVC(currentUser: user)
 
         homeVC.navigationItem.title = NSLocalizedString("HomeVCTitle", comment: "")
         homeVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "timesheetIcon"))

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,9 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = LoginViewController()
-//        window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
+
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+
+        try! keychain.removeAll()
+
+        if let key = try? keychain.get("apiKey") {
+            if let apiKey = key {
+                if let currentUser = UserDefaults.standard.dictionary(forKey: "currentUser") {
+                    let user = User(
+                        userName: currentUser["username"] as! String,
+                        apiEndpoint: URL(string: currentUser["endpoint"] as! String)!,
+                        apiKey: apiKey
+                    )
+
+                    window?.rootViewController = TabBarController(currentUser: user)
+                    return true
+                }
+            }
+        }
+
+        window?.rootViewController = LoginViewController()
         return true
     }
 

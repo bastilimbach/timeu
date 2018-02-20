@@ -19,8 +19,6 @@ class LoginTextFieldView: UIView {
         return imageView
     }()
 
-    let actionButton = UIButton()
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -30,26 +28,18 @@ class LoginTextFieldView: UIView {
     private func addViews() {
         addSubview(textField)
         addSubview(iconView)
-        addSubview(actionButton)
     }
 
     private func setupConstraints() {
         textField.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalTo(actionButton.snp.left).offset(-15)
+            make.right.equalToSuperview().inset(15)
             make.left.equalTo(iconView.snp.right).offset(15)
             make.height.equalTo(20)
         }
 
         iconView.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(15)
-            make.height.equalTo(textField)
-            make.width.equalTo(textField.snp.height)
-            make.centerY.equalToSuperview()
-        }
-
-        actionButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(15)
             make.height.equalTo(textField)
             make.width.equalTo(textField.snp.height)
             make.centerY.equalToSuperview()

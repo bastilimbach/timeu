@@ -11,6 +11,8 @@ import SnapKit
 
 class HomeVC: UIViewController {
 
+    private let currentUser: User
+
     private lazy var tableView: ActivityTableView = {
         let tableView = ActivityTableView()
         tableView.dataSource = tableViewDatasource
@@ -23,6 +25,15 @@ class HomeVC: UIViewController {
     let tableViewDatasource = ActivityTableViewDatasource()
     let tableViewDelegate = ActivityTableViewDelegate()
 
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
@@ -34,7 +45,7 @@ class HomeVC: UIViewController {
     }
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {
-        NetworkController.shared.getTimesheetFor(user: User(id: 538326004, userName: "gam_limbach", firstName: nil, lastName: nil), token: "4afb8fa15ac574e8a49dc611d") { [weak self] (activities, error) in
+        NetworkController.shared.getTimesheetFor(currentUser) { [weak self] (activities, error) in
             guard let activities = activities else { print(error!); return }
 
             let dateFormatter = DateFormatter()

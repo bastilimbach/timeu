@@ -20,6 +20,33 @@ class LoginView: UIView {
         }
     }
 
+    var kimaiURL: URL? {
+        get {
+            return URL(string: kimaiURLInput.textField.text!)
+        }
+        set {
+            kimaiURLInput.textField.text = String(describing: newValue!)
+        }
+    }
+
+    var username: String? {
+        get {
+            return usernameInput.textField.text
+        }
+        set {
+            usernameInput.textField.text = newValue
+        }
+    }
+
+    var password: String? {
+        get {
+            return passwordInput.textField.text
+        }
+        set {
+            passwordInput.textField.text = newValue
+        }
+    }
+
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "loginViewBackground")
@@ -45,7 +72,7 @@ class LoginView: UIView {
         return view
     }()
 
-    private let kimaiURLInput: LoginTextFieldView = {
+    let kimaiURLInput: LoginTextFieldView = {
         let fieldView = LoginTextFieldView()
         fieldView.backgroundColor = UIColor.init(r: 255, g: 255, b: 255, a: 0.6)
         fieldView.layer.cornerRadius = 5
@@ -53,9 +80,12 @@ class LoginView: UIView {
         fieldView.layer.shadowOpacity = 0.05
         fieldView.layer.shadowOffset = CGSize(width: fieldView.frame.width, height: fieldView.frame.height + 5)
         fieldView.layer.shadowRadius = 5
-        fieldView.textField.placeholder = "https://www.gambug.de/gambug/kimai_prod/index.php"
+        fieldView.textField.tag = 1
+        fieldView.textField.placeholder = "https://demo.kimai.org/"
         fieldView.textField.keyboardType = .URL
         fieldView.textField.returnKeyType = .next
+        fieldView.textField.autocorrectionType = .no
+        fieldView.textField.autocapitalizationType = .none
         fieldView.iconView.image = UIImage(named: "urlIcon")
 
         let blurEffect = UIBlurEffect(style: .light)
@@ -67,7 +97,7 @@ class LoginView: UIView {
         return fieldView
     }()
 
-    private let usernameInput: LoginTextFieldView = {
+    let usernameInput: LoginTextFieldView = {
         let fieldView = LoginTextFieldView()
         fieldView.backgroundColor = UIColor.init(r: 255, g: 255, b: 255, a: 0.6)
         fieldView.layer.cornerRadius = 5
@@ -76,6 +106,7 @@ class LoginView: UIView {
         fieldView.layer.shadowOpacity = 0.05
         fieldView.layer.shadowOffset = CGSize(width: fieldView.frame.width, height: fieldView.frame.height + 5)
         fieldView.layer.shadowRadius = 5
+        fieldView.textField.tag = 2
         fieldView.textField.placeholder = "Username"
         fieldView.textField.autocorrectionType = .no
         fieldView.textField.autocapitalizationType = .none
@@ -91,7 +122,7 @@ class LoginView: UIView {
         return fieldView
     }()
 
-    private let passwordInput: LoginTextFieldView = {
+    let passwordInput: LoginTextFieldView = {
         let fieldView = LoginTextFieldView()
         fieldView.backgroundColor = UIColor.init(r: 255, g: 255, b: 255, a: 0.6)
         fieldView.layer.cornerRadius = 5
@@ -100,12 +131,12 @@ class LoginView: UIView {
         fieldView.layer.shadowOpacity = 0.05
         fieldView.layer.shadowOffset = CGSize(width: fieldView.frame.width, height: fieldView.frame.height + 5)
         fieldView.layer.shadowRadius = 5
+        fieldView.textField.tag = 3
         fieldView.textField.placeholder = "Password"
         fieldView.textField.isSecureTextEntry = true
         fieldView.textField.autocorrectionType = .no
         fieldView.textField.returnKeyType = .go
         fieldView.iconView.image = UIImage(named: "passwordIcon")
-//        fieldView.actionButton.setImage(UIImage(named: "duplicateIcon"), for: .normal)
 
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -116,24 +147,22 @@ class LoginView: UIView {
         return fieldView
     }()
 
-    let loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Sign in", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
-        button.backgroundColor = UIColor.init(r: 102, g: 61, b: 188, a: 1)
-        button.layer.cornerRadius = 5
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.05
-        button.layer.shadowOffset = CGSize(width: button.frame.width, height: button.frame.height + 5)
-        button.layer.shadowRadius = 5
-        button.clipsToBounds = true
-        button.layer.shadowOffset = CGSize(width: button.frame.width, height: button.frame.height + 5)
-        return button
-    }()
+    let loginButton = LoginButton()
 
     let helpLink: UIButton = {
         let button = UIButton()
         button.setTitle("Need Help?", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 11)
+        button.titleLabel?.layer.shadowColor = UIColor.black.cgColor
+        button.titleLabel?.layer.shadowRadius = 5
+        button.titleLabel?.layer.shadowOpacity = 0.8
+        button.titleLabel?.layer.shadowOffset = .zero
+        return button
+    }()
+
+    let demoLink: UIButton = {
+        let button = UIButton()
+        button.setTitle("Try the demo", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 11)
         button.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         button.titleLabel?.layer.shadowRadius = 5
@@ -161,6 +190,7 @@ class LoginView: UIView {
         contentView.addSubview(passwordInput)
         contentView.addSubview(loginButton)
         contentView.addSubview(helpLink)
+        contentView.addSubview(demoLink)
     }
 
     private func setupConstraints() {
@@ -213,6 +243,10 @@ class LoginView: UIView {
 
         helpLink.snp.makeConstraints { make in
             make.right.bottom.equalToSuperview().inset(30)
+        }
+
+        demoLink.snp.makeConstraints { make in
+            make.left.bottom.equalToSuperview().inset(30)
         }
 
     }

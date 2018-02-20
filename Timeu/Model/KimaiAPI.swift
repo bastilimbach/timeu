@@ -66,3 +66,24 @@ extension KimaiTimesheetResult.Activity {
     }
 
 }
+
+struct KimaiAPIMetadata: Codable {
+    let transport: String
+    let envelope: String
+    let contentType: String
+    let SMDVersion: String
+    let target: String
+}
+
+struct KimaiAPIKey: Codable {
+    let result: KeyResult
+
+    struct KeyResult: Codable {
+        let success: Bool
+        let items: [APIKey]
+    }
+
+    struct APIKey: Codable {
+        let apiKey: String
+    }
+}
