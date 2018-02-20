@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD08AD4A2039DFF400526CF3 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD08AD492039DFF400526CF3 /* KeychainAccess.framework */; };
 		FD3E3E731F82E62200B5D291 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD3E3E751F82E62200B5D291 /* Localizable.strings */; };
 		FD3E3E781F82F4CF00B5D291 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3E3E771F82F4CF00B5D291 /* NetworkController.swift */; };
 		FD3E3E7A1F82F92900B5D291 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3E3E791F82F92900B5D291 /* User.swift */; };
@@ -24,6 +25,8 @@
 		FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */; };
 		FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */; };
 		FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C27321FCB4DAE00B27803 /* SnapKit.framework */; };
+		FD978338203CA6A800B01901 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD978337203CA6A800B01901 /* LoginButton.swift */; };
+		FD97833A203CC3D800B01901 /* PasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD978339203CC3D800B01901 /* PasswordExtension.framework */; };
 		FDABA50620139C370051A32E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDABA50520139C370051A32E /* Colors.swift */; };
 		FDB0BF551F81245C005AAA0F /* ActivityTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */; };
 		FDB0BF581F814CBB005AAA0F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB0BF571F814CBB005AAA0F /* Activity.swift */; };
@@ -38,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD08AD492039DFF400526CF3 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		FD3E3E701F82E5C300B5D291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FD3E3E741F82E62200B5D291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD3E3E761F82E62400B5D291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 		FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewDatasource.swift; sourceTree = "<group>"; };
 		FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FD7C27321FCB4DAE00B27803 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		FD978337203CA6A800B01901 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		FD978339203CC3D800B01901 /* PasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PasswordExtension.framework; path = Carthage/Build/iOS/PasswordExtension.framework; sourceTree = "<group>"; };
 		FDABA50520139C370051A32E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewHeader.swift; sourceTree = "<group>"; };
 		FDB0BF571F814CBB005AAA0F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD97833A203CC3D800B01901 /* PasswordExtension.framework in Frameworks */,
+				FD08AD4A2039DFF400526CF3 /* KeychainAccess.framework in Frameworks */,
 				FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */,
 				FDD678831F7D93E7002F4D33 /* ESTabBarController.framework in Frameworks */,
 				FD4BB72B1F7E62C60078B749 /* SwipeCellKit.framework in Frameworks */,
@@ -122,6 +130,7 @@
 		FD6FC36B20387948001012CA /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				FD978337203CA6A800B01901 /* LoginButton.swift */,
 				FD6FC36F20387B8E001012CA /* LoginView.swift */,
 				FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */,
 			);
@@ -195,6 +204,8 @@
 		FDD6787F1F7D93E7002F4D33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD978339203CC3D800B01901 /* PasswordExtension.framework */,
+				FD08AD492039DFF400526CF3 /* KeychainAccess.framework */,
 				FD7C27321FCB4DAE00B27803 /* SnapKit.framework */,
 				FD4BB72A1F7E62C60078B749 /* SwipeCellKit.framework */,
 				FDD678801F7D93E7002F4D33 /* Cartography.framework */,
@@ -291,6 +302,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ESTabBarController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwipeCellKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PasswordExtension.framework",
 			);
 			outputPaths = (
 			);
@@ -318,6 +331,7 @@
 				FD3E3E7C1F83E37100B5D291 /* KimaiAPI.swift in Sources */,
 				FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */,
 				FD6B0D22202E185000269742 /* ActivityTableView.swift in Sources */,
+				FD978338203CA6A800B01901 /* LoginButton.swift in Sources */,
 				FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */,
 				FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */,
 				FD6FC37020387B8E001012CA /* LoginView.swift in Sources */,
