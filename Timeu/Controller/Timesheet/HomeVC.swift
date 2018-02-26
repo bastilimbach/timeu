@@ -17,7 +17,6 @@ class HomeVC: UIViewController {
         let tableView = ActivityTableView()
         tableView.dataSource = tableViewDatasource
         tableView.delegate = tableViewDelegate
-//        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         tableView.refreshControl?.addTarget(self, action: #selector(getTimesheet), for: .valueChanged)
         return tableView
     }()
@@ -36,42 +35,40 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
-
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        view = tableView
         getTimesheet()
     }
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {
-        NetworkController.shared.getTimesheetFor(currentUser) { [weak self] (activities, error) in
-            guard let activities = activities else { print(error!); return }
+        NetworkController.shared.getTimesheetFor(currentUser) { [weak self] result in
+            if case let .success(result) = result {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
 
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
+                var lastDate: Date = result.items[0].startDateTime
+                var tempTimesheetActivities: [[Activity]] = [[result.items[0]]]
+                var tempTimesheetSections: [Date] = [lastDate]
+                var sectionIndex: Int = 0
 
-            var lastDate: Date = activities[0].startDateTime
-            var tempTimesheetActivities: [[Activity]] = [[activities[0]]]
-            var tempTimesheetSections: [Date] = [lastDate]
-            var sectionIndex: Int = 0
+                for (index, activity) in result.items.enumerated() where index != 0 {
+                    let dateComparison = Calendar.current.compare(lastDate, to: activity.startDateTime, toGranularity: .day)
+                    if dateComparison != .orderedSame {
+                        sectionIndex += 1
+                        lastDate = activity.startDateTime
+                        tempTimesheetSections.append(lastDate)
+                        tempTimesheetActivities.append([activity])
+                    } else {
+                        tempTimesheetActivities[sectionIndex].append(activity)
+                    }
+                }
 
-            for (index, activity) in activities.enumerated() where index != 0 {
-                let dateComparison = Calendar.current.compare(lastDate, to: activity.startDateTime, toGranularity: .day)
-                if dateComparison != .orderedSame {
-                    sectionIndex += 1
-                    lastDate = activity.startDateTime
-                    tempTimesheetSections.append(lastDate)
-                    tempTimesheetActivities.append([activity])
-                } else {
-                    tempTimesheetActivities[sectionIndex].append(activity)
+                self?.tableViewDatasource.timesheetActivities = tempTimesheetActivities
+                self?.tableViewDatasource.timesheetSections = tempTimesheetSections
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.tableView.refreshControl?.endRefreshing()
                 }
             }
-
-            self?.tableViewDatasource.timesheetActivities = tempTimesheetActivities
-            self?.tableViewDatasource.timesheetSections = tempTimesheetSections
-            self?.tableView.reloadData()
-            self?.tableView.refreshControl?.endRefreshing()
         }
     }
     

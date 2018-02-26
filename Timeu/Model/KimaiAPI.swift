@@ -8,63 +8,33 @@
 
 import Foundation
 
-struct KimaiTimesheetResult: Codable {
-    let result: KimaiResult
+enum KimaiAPIResponseKeys: String, CodingKey {
+    case result
 
-    struct KimaiResult: Codable {
-        let success: Bool
-        let items: [Activity]
+    enum KimaiResultKeys: String, CodingKey {
+        case success
+        case items
     }
+}
 
-    struct Activity: Codable {
-        let id: Int
-        let description: String
-        let customerName: String
-        let projectName: String
-        let startDateTime: Date
-        let endDateTime: Date
+struct KimaiEntity<KimaiEntityItem> {
+    let success: Bool
+    let items: [KimaiEntityItem]
+}
 
-        enum CodingKeys: String, CodingKey {
-            case id = "timeEntryID"
-            case description
-            case customerName
-            case projectName
-            case startDateTime = "start"
-            case endDateTime = "end"
-        }
+extension KimaiEntity: Decodable {
 
+    init(from decoder: Decoder) throws {
+        let rootContainer = try decoder.container(keyedBy: KimaiAPIResponseKeys.self)
+        let resultContainer = try rootContainer.nestedContainer(keyedBy: KimaiAPIResponseKeys.KimaiResultKeys.self, forKey: .result)
+        success = try resultContainer.decode(Bool.self, forKey: .success)
+        items = try resultContainer.decode([KimaiEntityItem].self, forKey: .items)
     }
 
 }
 
-extension KimaiTimesheetResult.Activity {
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let id = try container.decode(String.self, forKey: .id)
-        let description = try container.decode(String.self, forKey: .description)
-        let customerName = try container.decode(String.self, forKey: .customerName)
-        let projectName = try container.decode(String.self, forKey: .projectName)
-        let startDateTime = try container.decode(String.self, forKey: .startDateTime)
-        let endDateTime = try container.decode(String.self, forKey: .endDateTime)
-
-        guard let decodedId = Int(id),
-              let decodedStartDateTime = Double(startDateTime),
-              let decodedEndDateTime = Double(endDateTime)
-        else {
-            throw DecodingError.typeMismatch(Int.self, DecodingError.Context(codingPath: [], debugDescription: "Debug description"))
-        }
-
-        self.init(
-            id: decodedId,
-            description: description,
-            customerName: customerName,
-            projectName: projectName,
-            startDateTime: Date(timeIntervalSince1970: decodedStartDateTime),
-            endDateTime: Date(timeIntervalSince1970: decodedEndDateTime)
-        )
-    }
-
+struct APIKey: Codable {
+    let apiKey: String
 }
 
 struct KimaiAPIMetadata: Codable {
@@ -75,15 +45,3 @@ struct KimaiAPIMetadata: Codable {
     let target: String
 }
 
-struct KimaiAPIKey: Codable {
-    let result: KeyResult
-
-    struct KeyResult: Codable {
-        let success: Bool
-        let items: [APIKey]
-    }
-
-    struct APIKey: Codable {
-        let apiKey: String
-    }
-}

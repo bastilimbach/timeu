@@ -45,7 +45,7 @@ class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
 
-        let text = activity.description
+        let text = activity.description ?? "No description"
         let startTime = timeFormatter.string(from: activity.startDateTime)
         let endTime = timeFormatter.string(from: activity.endDateTime)
 

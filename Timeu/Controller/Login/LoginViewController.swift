@@ -103,23 +103,36 @@ class LoginViewController: UIViewController {
 
             guard let apiEndpoint = endpoint else { return }
 
-            NetworkController.shared.getTokenFor(userName, withPassword: password, endpoint: apiEndpoint) { authenticationResult, error in
-                guard error == nil else { return }
-                let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: authenticationResult?.result.items[0].apiKey)
-                UserDefaults.standard.set(["username": user.userName, "endpoint": String(describing: user.apiEndpoint)], forKey: "currentUser")
-                self?.present(TabBarController(currentUser: user), animated: true)
+            NetworkController.shared.getTokenFor(userName, withPassword: password, endpoint: apiEndpoint) { result in
+                switch result {
+                case .success(let metadata):
+                    let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: metadata.items[0].apiKey)
+                    UserDefaults.standard.set(["username": user.userName, "endpoint": String(describing: user.apiEndpoint)], forKey: "currentUser")
+                    DispatchQueue.main.async {
+                        self?.present(TabBarController(currentUser: user), animated: true)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }
 
     private func validateKimaiAPIEndpoint(startingWith baseURL: URL, completion: @escaping (_ endpoint: URL?) -> Void) {
         let apiURL = baseURL.appendingPathComponent("core/json.php")
-        NetworkController.shared.getAPIMetadata(fromURL: apiURL) { metadata in
-            if metadata?.envelope == "JSON-RPC-2.0" {
-                completion(apiURL)
-            } else {
+        NetworkController.shared.getAPIMetadata(fromURL: apiURL) { result in
+            switch result {
+            case .success(let metadata):
+                if metadata.envelope == "JSON-RPC-2.0" {
+                    completion(apiURL)
+                } else {
+                    completion(nil)
+                }
+            case .failure(let error):
+                print(error)
                 completion(nil)
             }
+
         }
     }
 
