@@ -9,14 +9,16 @@
 import UIKit
 import SnapKit
 
-class HomeVC: UIViewController {
+class TimesheetViewController: UIViewController {
 
     private let currentUser: User
 
     private lazy var tableView: ActivityTableView = {
         let tableView = ActivityTableView()
         tableView.dataSource = tableViewDatasource
+        tableViewDelegate.pushHandler = navigateToActivityDetail
         tableView.delegate = tableViewDelegate
+
         tableView.refreshControl?.addTarget(self, action: #selector(getTimesheet), for: .valueChanged)
         return tableView
     }()
@@ -37,6 +39,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         view = tableView
         getTimesheet()
+    }
+
+    func navigateToActivityDetail() {
+        navigationController?.pushViewController(TimesheetViewController(currentUser: currentUser), animated: true)
     }
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {

@@ -11,6 +11,8 @@ import SwipeCellKit
 
 class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
 
+    var pushHandler: (() -> Void)?
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return CGFloat.leastNonzeroMagnitude
@@ -40,6 +42,10 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
         }
 
         return header
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushHandler?()
     }
     
 }

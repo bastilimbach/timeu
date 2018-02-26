@@ -5,7 +5,7 @@
   Created by Sebastian Limbach on 02.10.2017.
   Copyright © 2017 Sebastian Limbach. All rights reserved.
 */
-"HomeVCTitle" = "Home";
+"HomeVCTitle" = "Timesheet";
 "Today" = "Today";
 "Yesterday" = "Yesterday";
 "DeleteActionTitle" = "Delete";

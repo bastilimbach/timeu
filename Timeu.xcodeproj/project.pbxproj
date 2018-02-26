@@ -35,7 +35,7 @@
 		FDD678741F7D9051002F4D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDD678721F7D9051002F4D33 /* LaunchScreen.storyboard */; };
 		FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */; };
 		FDD678831F7D93E7002F4D33 /* ESTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */; };
-		FDD678851F7D944E002F4D33 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678841F7D944E002F4D33 /* HomeVC.swift */; };
+		FDD678851F7D944E002F4D33 /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */; };
 		FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678871F7D9616002F4D33 /* Extensions.swift */; };
 		FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEC4A0320338F2300944FAE /* TabBarItemView.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +74,7 @@
 		FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FDD678801F7D93E7002F4D33 /* Cartography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cartography.framework; path = Carthage/Build/iOS/Cartography.framework; sourceTree = "<group>"; };
 		FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESTabBarController.framework; path = Carthage/Build/iOS/ESTabBarController.framework; sourceTree = "<group>"; };
-		FDD678841F7D944E002F4D33 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewController.swift; sourceTree = "<group>"; };
 		FDD678871F7D9616002F4D33 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDEC4A0320338F2300944FAE /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +121,7 @@
 		FD6FC36A2038787C001012CA /* Timesheet */ = {
 			isa = PBXGroup;
 			children = (
-				FDD678841F7D944E002F4D33 /* HomeVC.swift */,
+				FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */,
 				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
 			);
 			path = Timesheet;
@@ -320,7 +320,7 @@
 			files = (
 				FD3E3E781F82F4CF00B5D291 /* NetworkController.swift in Sources */,
 				FDABA50620139C370051A32E /* Colors.swift in Sources */,
-				FDD678851F7D944E002F4D33 /* HomeVC.swift in Sources */,
+				FDD678851F7D944E002F4D33 /* TimesheetViewController.swift in Sources */,
 				FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */,
 				FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */,
 				FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */,
