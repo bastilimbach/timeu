@@ -236,7 +236,9 @@ class LoginView: UIView {
         }
 
         loginButton.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(30)
+            make.left.right.equalToSuperview().inset(30).priority(750)
+            make.width.lessThanOrEqualTo(600).priority(1000)
+            make.centerX.equalToSuperview().priority(1000)
             make.bottom.equalTo(helpLink.snp.top).offset(-inputPadding)
             make.height.equalTo(40)
         }

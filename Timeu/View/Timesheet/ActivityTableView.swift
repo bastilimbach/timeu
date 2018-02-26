@@ -22,11 +22,10 @@ class ActivityTableView: UITableView {
         estimatedRowHeight = 50
         rowHeight = UITableViewAutomaticDimension
         estimatedSectionHeaderHeight = 50
+        refreshControl = UIRefreshControl()
+
         register(ActivityTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.activityCell.rawValue)
         register(ActivityStatsTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.activityStatsCell.rawValue)
-
-        refreshControl = UIRefreshControl()
-//        refreshControl?.attributedTitle = NSAttributedString(string: "ActivityRefreshConrolText".localized())
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -67,7 +67,7 @@ class ActivityTableViewCell: SwipeTableViewCell {
     }
 
     private func addViews() {
-        contentView.addSubview(card)
+        addSubview(card)
         card.addSubview(activityLabel)
         card.addSubview(activityTime)
         card.addSubview(disclosureIndicator)
