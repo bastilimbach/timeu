@@ -15,12 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.shared.isStatusBarHidden = false
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
         let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
 
-        try! keychain.removeAll()
+//        try! keychain.removeAll()
 
         if let key = try? keychain.get("apiKey") {
             if let apiKey = key {
