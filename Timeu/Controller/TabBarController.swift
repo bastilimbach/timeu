@@ -28,7 +28,7 @@ class TabBarController: ESTabBarController {
         let dummyVC = TimesheetViewController(currentUser: user)
         let settingsVC = TimesheetViewController(currentUser: user)
 
-        homeVC.navigationItem.title = NSLocalizedString("HomeVCTitle", comment: "")
+        homeVC.navigationItem.title = NSLocalizedString("TimesheetVCTitle", comment: "")
         homeVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "timesheetIcon"))
         dummyVC.tabBarItem = ESTabBarItem(TabBarAddItemView(), title: nil, image: UIImage(named: "addActivityIcon"))
         settingsVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "settingsIcon"))
