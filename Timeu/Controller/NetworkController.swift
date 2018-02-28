@@ -49,14 +49,14 @@ class NetworkController {
     }
 
     /// Get api key for a specific user
-    func getTokenFor(_ userName: String, withPassword password: String, endpoint: URL, completion: @escaping (Result<KimaiEntity<APIKey>>) -> Void) {
+    func getTokenFor(_ userName: String, withPassword password: String, endpoint: URL, completion: @escaping (Result<APIKey>) -> Void) {
         let params = [ "username": userName, "password": password ] as [String: Any]
         performKimai(method: "authenticate", withParams: params, endpoint: endpoint) { result in
             guard case let .success(data) = result else { return }
             let decoder = JSONDecoder()
             do {
                 let decodedResult = try decoder.decode(KimaiEntity<APIKey>.self, from: data)
-                completion(.success(decodedResult))
+                completion(.success(decodedResult.items[0]))
             } catch let jsonError {
                 completion(.failure(jsonError))
             }
@@ -64,7 +64,7 @@ class NetworkController {
     }
 
     /// Get timesheet for a user
-    func getTimesheetFor(_ user: User, completion: @escaping (Result<KimaiEntity<Activity>>) -> Void) {
+    func getTimesheetFor(_ user: User, completion: @escaping (Result<[Activity]>) -> Void) {
         guard let apiKey = user.apiKey else { return }
         let params = [ "apiKey": apiKey, "for": user.userName ] as [String: Any]
         performKimai(method: "getTimesheet", withParams: params, endpoint: user.apiEndpoint) { result in
@@ -74,7 +74,7 @@ class NetworkController {
             do {
                 let decodedResult = try decoder.decode(KimaiEntity<Activity>.self, from: data)
                 dump(decodedResult)
-                completion(.success(decodedResult))
+                completion(.success(decodedResult.items))
             } catch let jsonError {
                 completion(.failure(jsonError))
             }

@@ -47,16 +47,16 @@ class TimesheetViewController: UIViewController {
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {
         NetworkController.shared.getTimesheetFor(currentUser) { [weak self] result in
-            if case let .success(result) = result {
+            if case let .success(activites) = result {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .short
 
-                var lastDate: Date = result.items[0].startDateTime
-                var tempTimesheetActivities: [[Activity]] = [[result.items[0]]]
+                var lastDate: Date = activites[0].startDateTime
+                var tempTimesheetActivities: [[Activity]] = [[activites[0]]]
                 var tempTimesheetSections: [Date] = [lastDate]
                 var sectionIndex: Int = 0
 
-                for (index, activity) in result.items.enumerated() where index != 0 {
+                for (index, activity) in activites.enumerated() where index != 0 {
                     let dateComparison = Calendar.current.compare(lastDate, to: activity.startDateTime, toGranularity: .day)
                     if dateComparison != .orderedSame {
                         sectionIndex += 1

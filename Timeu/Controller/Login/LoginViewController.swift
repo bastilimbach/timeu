@@ -105,8 +105,8 @@ class LoginViewController: UIViewController {
 
             NetworkController.shared.getTokenFor(userName, withPassword: password, endpoint: apiEndpoint) { result in
                 switch result {
-                case .success(let metadata):
-                    let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: metadata.items[0].apiKey)
+                case .success(let result):
+                    let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: result.apiKey)
                     UserDefaults.standard.set(["username": user.userName, "endpoint": String(describing: user.apiEndpoint)], forKey: "currentUser")
                     DispatchQueue.main.async {
                         self?.present(TabBarController(currentUser: user), animated: true)
