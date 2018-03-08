@@ -73,7 +73,6 @@ class NetworkController {
             decoder.dateDecodingStrategy = .secondsSince1970
             do {
                 let decodedResult = try decoder.decode(KimaiEntity<Activity>.self, from: data)
-                dump(decodedResult)
                 completion(.success(decodedResult.items))
             } catch let jsonError {
                 completion(.failure(jsonError))
