@@ -16,7 +16,7 @@ class TimesheetViewController: UIViewController {
     private lazy var tableView: ActivityTableView = {
         let tableView = ActivityTableView()
         tableView.dataSource = tableViewDatasource
-        tableViewDelegate.pushHandler = navigateToActivityDetail
+        tableViewDelegate.pushHandler = navigateToActivityDetail(activity:)
         tableView.delegate = tableViewDelegate
 
         tableView.refreshControl?.addTarget(self, action: #selector(getTimesheet), for: .valueChanged)
@@ -41,8 +41,8 @@ class TimesheetViewController: UIViewController {
         getTimesheet()
     }
 
-    func navigateToActivityDetail() {
-        navigationController?.pushViewController(TimesheetViewController(currentUser: currentUser), animated: true)
+    func navigateToActivityDetail(activity: Activity) {
+        navigationController?.pushViewController(TimesheetRecordDetailsViewController(forRecord: activity), animated: true)
     }
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {

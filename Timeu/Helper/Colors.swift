@@ -14,6 +14,11 @@ extension UIColor {
         return UIColor.init(r: 244, g: 244, b: 247, a: 1)
     }
 
+    /// Timeu highlight color
+    class var timeuHighlight: UIColor {
+        return UIColor.init(r: 37, g: 220, b: 189, a: 1)
+    }
+
     /// Timeu primary text color
     class var timeuTextBlack: UIColor {
         return UIColor.init(r: 0, g: 0, b: 0, a: 1)
@@ -32,5 +37,20 @@ extension UIColor {
     /// Timeu table view section header color
     class var timeuTableViewHeaderColor: UIColor {
         return UIColor.init(r: 137, g: 137, b: 138, a: 1)
+    }
+
+    /// Timeu gray tone 1
+    class var timeuGrayTone1: UIColor {
+        return UIColor.init(r: 225, g: 225, b: 225, a: 1)
+    }
+
+    /// Timeu gray tone 2
+    class var timeuGrayTone2: UIColor {
+        return UIColor.init(r: 142, g: 142, b: 142, a: 1)
+    }
+
+    /// Timeu gray tone 3
+    class var timeuGrayTone3: UIColor {
+        return UIColor.init(r: 66, g: 66, b: 66, a: 1)
     }
 }

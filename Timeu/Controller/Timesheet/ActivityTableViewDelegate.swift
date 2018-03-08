@@ -11,7 +11,7 @@ import SwipeCellKit
 
 class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
 
-    var pushHandler: (() -> Void)?
+    var pushHandler: ((Activity) -> Void)?
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
@@ -45,7 +45,9 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushHandler?()
+        guard let dataSource = tableView.dataSource as? ActivityTableViewDatasource,
+            let activity = dataSource.timesheetActivities?[indexPath.section - 1][indexPath.row] else { return }
+        pushHandler?(activity)
     }
     
 }

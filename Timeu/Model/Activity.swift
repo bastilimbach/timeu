@@ -13,6 +13,7 @@ struct Activity {
     let description: String?
     let customerName: String
     let projectName: String
+    let task: String
     let startDateTime: Date
     let endDateTime: Date
 
@@ -21,6 +22,7 @@ struct Activity {
         case description
         case customerName
         case projectName
+        case task = "activityName"
         case startDateTime = "start"
         case endDateTime = "end"
     }
@@ -34,6 +36,7 @@ extension Activity: Decodable {
         description = try container.decodeIfPresent(String.self, forKey: .description)
         customerName = try container.decode(String.self, forKey: .customerName)
         projectName = try container.decode(String.self, forKey: .projectName)
+        task = try container.decode(String.self, forKey: .task)
         startDateTime = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .startDateTime))!)
         endDateTime = Date(timeIntervalSince1970: Double(try container.decode(String.self, forKey: .endDateTime))!)
     }

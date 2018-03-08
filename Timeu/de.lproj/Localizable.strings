@@ -10,4 +10,6 @@
 "Yesterday" = "Gestern";
 "DeleteActionTitle" = "Löschen";
 "DuplicateActionTitle" = "Duplizieren";
-"ActivityRefreshConrolText" = "Ziehen zum aktualisieren";
+"StartTimeTitle" = "Start";
+"EndTimeTitle" = "Ende";
+"WeekOfTheYear" = "Kalenderwoche";
