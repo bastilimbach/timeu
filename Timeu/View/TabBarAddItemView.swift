@@ -17,7 +17,7 @@ class TabBarAddItemView: ESTabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        imageView.backgroundColor = UIColor.init(red: 37/255.0, green: 220/255.0, blue: 189/255.0, alpha: 1.0)
+        imageView.backgroundColor = .timeuHighlight
         imageView.layer.cornerRadius = itemSize.height / 2
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.05
