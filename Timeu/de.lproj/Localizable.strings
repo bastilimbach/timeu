@@ -6,6 +6,7 @@
   Copyright © 2017 Sebastian Limbach. All rights reserved.
 */
 "TimesheetVCTitle" = "Zeiterfassung";
+"SettingsVCTitle" = "Einstellungen";
 "Today" = "Heute";
 "Yesterday" = "Gestern";
 "DeleteActionTitle" = "Löschen";

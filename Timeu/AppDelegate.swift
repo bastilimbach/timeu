@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
 
-//        try! keychain.removeAll()
-
         if let key = try? keychain.get("apiKey") {
             if let apiKey = key {
                 if let currentUser = UserDefaults.standard.dictionary(forKey: "currentUser") {

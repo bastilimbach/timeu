@@ -19,6 +19,7 @@
 		FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */; };
 		FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */; };
 		FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */; };
+		FD6C12DC2051D46F0068D584 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6C12DB2051D46F0068D584 /* SettingsViewController.swift */; };
 		FD6FC36E203879BD001012CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC36D203879BD001012CA /* LoginViewController.swift */; };
 		FD6FC37020387B8E001012CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC36F20387B8E001012CA /* LoginView.swift */; };
 		FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */; };
@@ -38,6 +39,9 @@
 		FDD678831F7D93E7002F4D33 /* ESTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */; };
 		FDD678851F7D944E002F4D33 /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */; };
 		FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678871F7D9616002F4D33 /* Extensions.swift */; };
+		FDE9C2EE205317E7009250D9 /* OSSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */; };
+		FDE9C2F020531FFF009250D9 /* GraphicsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */; };
+		FDE9C2F2205320E1009250D9 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2F1205320E1009250D9 /* Credits.swift */; };
 		FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEC4A0320338F2300944FAE /* TabBarItemView.swift */; };
 		FDF77DE0204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF77DDF204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift */; };
 		FDF77DE32047029700E7E0B3 /* TimesheetRecordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF77DE22047029700E7E0B3 /* TimesheetRecordDetailsView.swift */; };
@@ -59,6 +63,7 @@
 		FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDatasource.swift; sourceTree = "<group>"; };
 		FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
 		FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsTableViewCell.swift; sourceTree = "<group>"; };
+		FD6C12DB2051D46F0068D584 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FD6FC36D203879BD001012CA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD6FC36F20387B8E001012CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
@@ -81,6 +86,9 @@
 		FDD678811F7D93E7002F4D33 /* ESTabBarController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESTabBarController.framework; path = Carthage/Build/iOS/ESTabBarController.framework; sourceTree = "<group>"; };
 		FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewController.swift; sourceTree = "<group>"; };
 		FDD678871F7D9616002F4D33 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSSDetailViewController.swift; sourceTree = "<group>"; };
+		FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsDetailViewController.swift; sourceTree = "<group>"; };
+		FDE9C2F1205320E1009250D9 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		FDEC4A0320338F2300944FAE /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		FDF77DDF204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetRecordDetailsViewController.swift; sourceTree = "<group>"; };
 		FDF77DE22047029700E7E0B3 /* TimesheetRecordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetRecordDetailsView.swift; sourceTree = "<group>"; };
@@ -113,6 +121,16 @@
 				FDEC4A0320338F2300944FAE /* TabBarItemView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FD6C12DA2051D4570068D584 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FD6C12DB2051D46F0068D584 /* SettingsViewController.swift */,
+				FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */,
+				FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		FD6FC36720387764001012CA /* Timesheet */ = {
@@ -162,6 +180,7 @@
 				FD3E3E7B1F83E37100B5D291 /* KimaiAPI.swift */,
 				FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */,
 				FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */,
+				FDE9C2F1205320E1009250D9 /* Credits.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +221,7 @@
 		FDD6787B1F7D90A3002F4D33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FD6C12DA2051D4570068D584 /* Settings */,
 				FDF77DDE2047018B00E7E0B3 /* TimesheetRecord Details */,
 				FD6FC36C2038797A001012CA /* Login */,
 				FD6FC36A2038787C001012CA /* Timesheet */,
@@ -348,6 +368,7 @@
 			files = (
 				FD3E3E781F82F4CF00B5D291 /* NetworkController.swift in Sources */,
 				FDF77DE5204708E200E7E0B3 /* TimesheetRecordDetailsCardView.swift in Sources */,
+				FDE9C2F2205320E1009250D9 /* Credits.swift in Sources */,
 				FDABA50620139C370051A32E /* Colors.swift in Sources */,
 				FDD678851F7D944E002F4D33 /* TimesheetViewController.swift in Sources */,
 				FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */,
@@ -365,13 +386,16 @@
 				FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */,
 				FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */,
 				FD6FC37020387B8E001012CA /* LoginView.swift in Sources */,
+				FDE9C2EE205317E7009250D9 /* OSSDetailViewController.swift in Sources */,
 				FDF77DE0204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift in Sources */,
 				FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */,
 				FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */,
 				FDF77DE32047029700E7E0B3 /* TimesheetRecordDetailsView.swift in Sources */,
+				FD6C12DC2051D46F0068D584 /* SettingsViewController.swift in Sources */,
 				FD3E3E7A1F82F92900B5D291 /* User.swift in Sources */,
 				FD4BB7271F7E4E760078B749 /* ActivityTableViewCell.swift in Sources */,
 				FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */,
+				FDE9C2F020531FFF009250D9 /* GraphicsDetailViewController.swift in Sources */,
 				FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
