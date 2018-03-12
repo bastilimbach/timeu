@@ -45,12 +45,10 @@ class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
 
-        let text = activity.description ?? "No description"
-        let startTime = timeFormatter.string(from: activity.startDateTime)
-        let endTime = timeFormatter.string(from: activity.endDateTime)
-
-        cell.activityLabel.text = text
-        cell.activityTime.text = "\(startTime) - \(endTime)"
+        cell.customerLabel.text = activity.customerName
+        cell.projectLabel.text = activity.projectName
+        cell.startTimeLabel.text = timeFormatter.string(from: activity.startDateTime)
+        cell.endTimeLabel.text = timeFormatter.string(from: activity.endDateTime)
         cell.delegate = tableView.delegate as? SwipeTableViewCellDelegate
         return cell
     }

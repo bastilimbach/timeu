@@ -41,7 +41,14 @@ class TimesheetViewController: UIViewController {
         getTimesheet()
     }
 
-    func navigateToActivityDetail(activity: Activity) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let selectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedRow, animated: true)
+        }
+    }
+
+    private func navigateToActivityDetail(activity: Activity) {
         navigationController?.pushViewController(TimesheetRecordDetailsViewController(forRecord: activity), animated: true)
     }
 

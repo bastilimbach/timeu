@@ -23,23 +23,63 @@ class ActivityTableViewCell: SwipeTableViewCell {
         return view
     }()
 
-    let activityLabel: UILabel = {
+    let startTimeLabel: UILabel = {
         let label = UILabel()
-        label.sizeToFit()
-        label.textColor = .timeuTextBlack
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
-        label.numberOfLines = 2
-        label.text = "App - Onboarding Screens"
+        label.font = .systemFont(ofSize: 11, weight: .bold)
         return label
     }()
 
-    let activityTime: UILabel = {
+    let endTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 11, weight: .bold)
+        return label
+    }()
+
+    private let dotsView: UIView = {
+        let view = UIView()
+        let size = 2
+        let margin = 3
+
+        let firstDot = CAShapeLayer()
+        firstDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: size, height: size)).cgPath
+        firstDot.fillColor = UIColor.timeuGrayTone3.cgColor
+        let secondDot = CAShapeLayer()
+        secondDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: size + margin, width: size, height: size)).cgPath
+        secondDot.fillColor = UIColor.timeuGrayTone2.cgColor
+        let thirdDot = CAShapeLayer()
+        thirdDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: (size + margin) * 2, width: size, height: size)).cgPath
+        thirdDot.fillColor = UIColor.timeuGrayTone1.cgColor
+
+        view.layer.addSublayer(firstDot)
+        view.layer.addSublayer(secondDot)
+        view.layer.addSublayer(thirdDot)
+
+        return view
+    }()
+
+    private let timeView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        return stackView
+    }()
+
+    let customerLabel: UILabel = {
+        let label = UILabel()
+        label.sizeToFit()
+        label.textColor = .timeuTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.numberOfLines = 2
+        return label
+    }()
+
+    let projectLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
         label.textColor = .timeuSubheaderColor
-        label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.font = .systemFont(ofSize: 12, weight: .light)
         label.numberOfLines = 1
-        label.text = "12:30 - 18:00 (Novoferm)"
         return label
     }()
 
@@ -68,23 +108,43 @@ class ActivityTableViewCell: SwipeTableViewCell {
 
     private func addViews() {
         addSubview(card)
-        card.addSubview(activityLabel)
-        card.addSubview(activityTime)
+        card.addSubview(timeView)
+        card.addSubview(customerLabel)
+        card.addSubview(projectLabel)
         card.addSubview(disclosureIndicator)
+
+        timeView.addArrangedSubview(endTimeLabel)
+        timeView.addArrangedSubview(dotsView)
+        timeView.addArrangedSubview(startTimeLabel)
     }
 
     private func setupConstrains() {
         card.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsetsMake(cardPadding / 3, cardPadding, cardPadding / 3, cardPadding))
         }
-        
-        activityLabel.snp.makeConstraints { make in
-            make.left.top.right.equalToSuperview().inset(10)
+
+        dotsView.snp.makeConstraints { make in
+            make.width.equalTo(2)
+            make.height.equalTo(12)
+        }
+
+        timeView.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(10)
+            make.width.equalTo(60)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(50)
         }
         
-        activityTime.snp.makeConstraints { make in
-            make.left.bottom.right.equalToSuperview().inset(10)
-            make.top.equalTo(activityLabel.snp.bottom).offset(5)
+        customerLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(10)
+            make.left.equalTo(timeView.snp.right).offset(10)
+            make.right.equalTo(disclosureIndicator.snp.left).offset(-5)
+        }
+        
+        projectLabel.snp.makeConstraints { make in
+            make.left.right.equalTo(customerLabel)
+            make.bottom.equalToSuperview().inset(10)
+            make.top.equalTo(customerLabel.snp.bottom).offset(5)
         }
 
         disclosureIndicator.snp.makeConstraints { make in
@@ -96,9 +156,17 @@ class ActivityTableViewCell: SwipeTableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         if selected {
-            card.backgroundColor = UIColor.lightGray
+            card.backgroundColor = UIColor.init(r: 234, g: 234, b: 234, a: 1)
+        } else {
+            card.backgroundColor = UIColor.white
+        }
+    }
+
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        if highlighted {
+            card.backgroundColor = UIColor.init(r: 234, g: 234, b: 234, a: 1)
         } else {
             card.backgroundColor = UIColor.white
         }
