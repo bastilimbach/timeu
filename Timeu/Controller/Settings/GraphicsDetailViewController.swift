@@ -21,21 +21,21 @@ class GraphicsDetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Credits().graphics.count
+        return Credits.graphics.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        if Credits().graphics[indexPath.row].website != nil {
+        if Credits.graphics[indexPath.row].website != nil {
             cell.accessoryType = .disclosureIndicator
         }
-        cell.textLabel?.text = Credits().graphics[indexPath.row].name
-        cell.detailTextLabel?.text = "by \(Credits().graphics[indexPath.row].author)"
+        cell.textLabel?.text = Credits.graphics[indexPath.row].name
+        cell.detailTextLabel?.text = "by \(Credits.graphics[indexPath.row].author)"
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let projectWebsite = Credits().graphics[indexPath.row].website else { return }
+        guard let projectWebsite = Credits.graphics[indexPath.row].website else { return }
         let safari = SFSafariViewController(url: projectWebsite)
         present(safari, animated: true)
     }
