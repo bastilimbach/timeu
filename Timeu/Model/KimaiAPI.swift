@@ -21,7 +21,7 @@ enum KimaiAPIResponseKeys: String, CodingKey {
     }
 }
 
-struct KimaiEntity<KimaiEntityItem> {
+struct KimaiEntity<KimaiEntityItem: Decodable> {
     let success: Bool
     let items: [KimaiEntityItem]
 }
