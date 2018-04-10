@@ -1,5 +1,5 @@
 github "SnapKit/SnapKit" "4.0.0"
 github "SwipeCellKit/SwipeCellKit" "1.9.1"
-github "eggswift/ESTabBarController" "2.6.1"
+github "eggswift/ESTabBarController" "2.6.2"
 github "fahlout/PasswordExtension" "4.1.2"
 github "kishikawakatsumi/KeychainAccess" "v3.1.0"
