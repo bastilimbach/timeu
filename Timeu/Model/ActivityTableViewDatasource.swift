@@ -15,45 +15,55 @@ import SwipeCellKit
 
 class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
 
-    var timesheetActivities: [[Activity]]?
+    var timesheetRows: [[Any]]?
     var timesheetSections: [Date]?
-
-    convenience init(activities: [[Activity]]?, sections: [Date]?) {
-        self.init()
-        timesheetActivities = activities
-        timesheetSections = sections
-    }
+    var collectionViewDatasource = ActivityStatsCollectionViewDatasource()
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let sectionCounter = timesheetSections?.count else { return 0 }
-        return sectionCounter + 1
+        return timesheetSections?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
-            return timesheetActivities?[section - 1].count ?? 0
+            return timesheetRows?[section].count ?? 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 && indexPath.section == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: ActivityTableView.CellIdentifiers.activityStatsCell.rawValue) as! ActivityStatsTableViewCell
+        guard let row = timesheetRows?[indexPath.section][indexPath.row] else { return UITableViewCell() }
+
+        if indexPath.section == 0 {
+            return getCell(forTimesheetStats: timesheetRows?[indexPath.section] as! [TimesheetStats], of: tableView)
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableView.CellIdentifiers.activityCell.rawValue) as! ActivityTableViewCell
+        guard let activity = row as? Activity else { return UITableViewCell() }
+        return getCell(forTimesheetRecord: activity, of: tableView)
+    }
 
-        guard let activity = timesheetActivities?[indexPath.section - 1][indexPath.row] else { return cell }
+    private func getCell(forTimesheetRecord record: Activity, of tableView: UITableView) -> ActivityTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableView.CellIdentifiers.activityCell.rawValue) as! ActivityTableViewCell
 
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
-
-        cell.customerLabel.text = activity.customerName
-        cell.projectLabel.text = activity.projectName
-        cell.startTimeLabel.text = timeFormatter.string(from: activity.startDateTime)
-        cell.endTimeLabel.text = timeFormatter.string(from: activity.endDateTime)
+ 
+        cell.customerLabel.text = record.customerName
+        cell.projectLabel.text = record.projectName
+        cell.startTimeLabel.text = timeFormatter.string(from: record.startDateTime)
+        cell.endTimeLabel.text = timeFormatter.string(from: record.endDateTime)
         cell.delegate = tableView.delegate as? SwipeTableViewCellDelegate
+
+        return cell
+    }
+
+    private func getCell(forTimesheetStats stats: [TimesheetStats], of tableView: UITableView) -> ActivityStatsTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableView.CellIdentifiers.activityStatsCell.rawValue) as! ActivityStatsTableViewCell
+
+        collectionViewDatasource.setStats(newStats: stats)
+        cell.collectionView.dataSource = collectionViewDatasource
+        cell.collectionView.reloadData()
+
         return cell
     }
 

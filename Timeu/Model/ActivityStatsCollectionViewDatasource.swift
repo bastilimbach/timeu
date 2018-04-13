@@ -14,14 +14,25 @@ import UIKit
 
 class ActivityStatsCollectionViewDatasource: NSObject, UICollectionViewDataSource {
 
+    var stats: [TimesheetStats]?
+
+    convenience init(stats: [TimesheetStats]) {
+        self.init()
+        self.stats = stats
+    }
+
+    func setStats(newStats: [TimesheetStats]) {
+        self.stats = newStats
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return stats?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "unknown", for: indexPath) as! ActivityStatsCollectionViewCell
-        cell.number = 47
-        cell.numberDescription = "Stunden diesen Monat"
+        cell.number = stats?[indexPath.row].time
+        cell.numberDescription = stats?[indexPath.row].description
         return cell
     }
 

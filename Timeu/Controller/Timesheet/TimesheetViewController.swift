@@ -63,23 +63,55 @@ class TimesheetViewController: UIViewController {
                 dateFormatter.dateStyle = .short
 
                 var lastDate: Date = activites[0].startDateTime
-                var tempTimesheetActivities: [[Activity]] = [[activites[0]]]
+                var tempTimesheetRecords = [[Any]()]
                 var tempTimesheetSections: [Date] = [lastDate]
                 var sectionIndex: Int = 0
 
-                for (index, activity) in activites.enumerated() where index != 0 {
+                var secondsToday = 0
+                var secondsThisWeek = 0
+                var secondsThisMonth = 0
+
+                for activity in activites {
+                    let secondsDifferences = Calendar.current.dateComponents([.second], from: activity.startDateTime, to: activity.endDateTime).second ?? 0
+                    let day = Calendar.current.compare(activity.startDateTime, to: Date(), toGranularity: .day)
+                    if day == .orderedSame {
+                        secondsToday += secondsDifferences
+                    }
+
+                    let week = Calendar.current.compare(activity.startDateTime, to: Date(), toGranularity: .weekOfYear)
+                    if week == .orderedSame {
+                        secondsThisWeek += secondsDifferences
+                    }
+
+                    let month = Calendar.current.compare(activity.startDateTime, to: Date(), toGranularity: .month)
+                    if month == .orderedSame {
+                        secondsThisMonth += secondsDifferences
+                    }
+
                     let dateComparison = Calendar.current.compare(lastDate, to: activity.startDateTime, toGranularity: .day)
                     if dateComparison != .orderedSame {
                         sectionIndex += 1
                         lastDate = activity.startDateTime
                         tempTimesheetSections.append(lastDate)
-                        tempTimesheetActivities.append([activity])
+                        tempTimesheetRecords.append([activity])
                     } else {
-                        tempTimesheetActivities[sectionIndex].append(activity)
+                        tempTimesheetRecords[sectionIndex].append(activity)
                     }
                 }
 
-                self?.tableViewDatasource.timesheetActivities = tempTimesheetActivities
+                let formatter = DateComponentsFormatter()
+                formatter.allowedUnits = [.hour, .minute]
+                formatter.zeroFormattingBehavior = .pad
+
+                let statsArray = [
+                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsToday))!, description: "Hours today"),
+                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsThisWeek))!, description: "Hours this week"),
+                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsThisMonth))!, description: "Hours this month")
+                ]
+
+                tempTimesheetRecords.insert(statsArray, at: 0)
+                tempTimesheetSections.insert(lastDate, at: 0)
+                self?.tableViewDatasource.timesheetRows = tempTimesheetRecords
                 self?.tableViewDatasource.timesheetSections = tempTimesheetSections
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()

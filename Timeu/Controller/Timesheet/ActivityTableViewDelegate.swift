@@ -28,7 +28,7 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
         if section == 0 { return nil }
         let header = ActivityTableViewHeader()
         guard let dataSource = tableView.dataSource as? ActivityTableViewDatasource,
-            let sectionDate = dataSource.timesheetSections?[section - 1] else { return header }
+            let sectionDate = dataSource.timesheetSections?[section] else { return header }
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full
@@ -50,7 +50,8 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let dataSource = tableView.dataSource as? ActivityTableViewDatasource,
-            let activity = dataSource.timesheetActivities?[indexPath.section - 1][indexPath.row] else { return }
+            let row = dataSource.timesheetRows?[indexPath.section][indexPath.row],
+            let activity = row as? Activity else { return }
         pushHandler?(activity)
     }
     
@@ -77,12 +78,13 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
         duplicateAction.font = .systemFont(ofSize: 8)
 
 
-        switch orientation {
-        case .right:
-            return [deleteAction]
-        case .left:
-            return [duplicateAction, duplicateAction]
-        }
+//        switch orientation {
+//        case .right:
+//            return [deleteAction]
+//        case .left:
+//            return [duplicateAction, duplicateAction]
+//        }
+        return nil
 
     }
 

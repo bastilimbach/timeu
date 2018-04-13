@@ -43,6 +43,7 @@
 		FDE9C2F020531FFF009250D9 /* GraphicsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */; };
 		FDE9C2F2205320E1009250D9 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2F1205320E1009250D9 /* Credits.swift */; };
 		FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEC4A0320338F2300944FAE /* TabBarItemView.swift */; };
+		FDF365F0205ECEFD0089212F /* TimesheetStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF365EF205ECEFD0089212F /* TimesheetStats.swift */; };
 		FDF77DE0204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF77DDF204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift */; };
 		FDF77DE32047029700E7E0B3 /* TimesheetRecordDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF77DE22047029700E7E0B3 /* TimesheetRecordDetailsView.swift */; };
 		FDF77DE5204708E200E7E0B3 /* TimesheetRecordDetailsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF77DE4204708E200E7E0B3 /* TimesheetRecordDetailsCardView.swift */; };
@@ -90,6 +91,7 @@
 		FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsDetailViewController.swift; sourceTree = "<group>"; };
 		FDE9C2F1205320E1009250D9 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		FDEC4A0320338F2300944FAE /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
+		FDF365EF205ECEFD0089212F /* TimesheetStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetStats.swift; sourceTree = "<group>"; };
 		FDF77DDF204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetRecordDetailsViewController.swift; sourceTree = "<group>"; };
 		FDF77DE22047029700E7E0B3 /* TimesheetRecordDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetRecordDetailsView.swift; sourceTree = "<group>"; };
 		FDF77DE4204708E200E7E0B3 /* TimesheetRecordDetailsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetRecordDetailsCardView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */,
 				FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */,
 				FDE9C2F1205320E1009250D9 /* Credits.swift */,
+				FDF365EF205ECEFD0089212F /* TimesheetStats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				FDABA50620139C370051A32E /* Colors.swift in Sources */,
 				FDD678851F7D944E002F4D33 /* TimesheetViewController.swift in Sources */,
 				FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */,
+				FDF365F0205ECEFD0089212F /* TimesheetStats.swift in Sources */,
 				FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */,
 				FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */,
 				FD45099E2031E90000CA53B9 /* TabBarAddItemView.swift in Sources */,

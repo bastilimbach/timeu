@@ -15,13 +15,12 @@ import SnapKit
 
 class ActivityStatsCollectionViewCell: UICollectionViewCell {
 
-    var number: Int? {
+    var number: String? {
         get {
-            guard let text = numberLabel.text else { return nil }
-            return Int(text)
+            return numberLabel.text
         }
         set {
-            numberLabel.text = String(describing: newValue ?? 0)
+            numberLabel.text = newValue
         }
     }
 
@@ -48,6 +47,8 @@ class ActivityStatsCollectionViewCell: UICollectionViewCell {
     private let numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .timeuHighlightText
+        label.adjustsFontSizeToFitWidth = true
+        label.baselineAdjustment = .alignCenters
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 76, weight: UIFont.Weight.heavy)
         return label

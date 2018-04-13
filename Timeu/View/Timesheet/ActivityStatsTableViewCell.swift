@@ -15,7 +15,7 @@ import SnapKit
 
 class ActivityStatsTableViewCell: UITableViewCell {
 
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
@@ -24,18 +24,16 @@ class ActivityStatsTableViewCell: UITableViewCell {
         layout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = false
+	        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ActivityStatsCollectionViewCell.self, forCellWithReuseIdentifier: "unknown")
         return collectionView
     }()
 
-    private let collectionViewDatasource = ActivityStatsCollectionViewDatasource()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
         selectionStyle = .none
-        collectionView.dataSource = collectionViewDatasource
 
         addViews()
         setupConstrains()
@@ -49,7 +47,7 @@ class ActivityStatsTableViewCell: UITableViewCell {
         collectionView.snp.makeConstraints { make in
             make.height.equalTo(140)
             make.left.right.equalToSuperview()
-            make.top.bottom.equalToSuperview().inset(20)
+            make.top.bottom.equalToSuperview()
         }
     }
 
