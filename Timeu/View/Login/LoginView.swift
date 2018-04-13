@@ -111,7 +111,7 @@ class LoginView: UIView {
         fieldView.layer.shadowOffset = CGSize(width: fieldView.frame.width, height: fieldView.frame.height + 5)
         fieldView.layer.shadowRadius = 5
         fieldView.textField.tag = 2
-        fieldView.textField.placeholder = "Username"
+        fieldView.textField.placeholder = "login.placeholder.username".localized()
         fieldView.textField.autocorrectionType = .no
         fieldView.textField.autocapitalizationType = .none
         fieldView.textField.returnKeyType = .next
@@ -136,7 +136,7 @@ class LoginView: UIView {
         fieldView.layer.shadowOffset = CGSize(width: fieldView.frame.width, height: fieldView.frame.height + 5)
         fieldView.layer.shadowRadius = 5
         fieldView.textField.tag = 3
-        fieldView.textField.placeholder = "Password"
+        fieldView.textField.placeholder = "login.placeholder.password".localized()
         fieldView.textField.isSecureTextEntry = true
         fieldView.textField.autocorrectionType = .no
         fieldView.textField.returnKeyType = .go
@@ -155,7 +155,7 @@ class LoginView: UIView {
 
     let helpLink: UIButton = {
         let button = UIButton()
-        button.setTitle("Need Help?", for: .normal)
+        button.setTitle("login.button.needHelp".localized(), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 11)
         button.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         button.titleLabel?.layer.shadowRadius = 5
@@ -166,7 +166,7 @@ class LoginView: UIView {
 
     let demoLink: UIButton = {
         let button = UIButton()
-        button.setTitle("Try the demo", for: .normal)
+        button.setTitle("login.button.tryDemo".localized(), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 11)
         button.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         button.titleLabel?.layer.shadowRadius = 5

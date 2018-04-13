@@ -104,9 +104,9 @@ class TimesheetViewController: UIViewController {
                 formatter.zeroFormattingBehavior = .pad
 
                 let statsArray = [
-                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsToday))!, description: "Hours today"),
-                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsThisWeek))!, description: "Hours this week"),
-                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsThisMonth))!, description: "Hours this month")
+                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsToday))!, description: "timesheet.stats.today".localized()),
+                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsThisWeek))!, description: "timesheet.stats.week".localized()),
+                    TimesheetStats(time: formatter.string(from: TimeInterval(secondsThisMonth))!, description: "timesheet.stats.month".localized())
                 ]
 
                 tempTimesheetRecords.insert(statsArray, at: 0)

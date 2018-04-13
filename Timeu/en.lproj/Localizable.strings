@@ -10,12 +10,48 @@
 //  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-"TimesheetVCTitle" = "Timesheet";
-"SettingsVCTitle" = "Settings";
-"Today" = "Today";
-"Yesterday" = "Yesterday";
-"DeleteActionTitle" = "Delete";
-"DuplicateActionTitle" = "Duplicate";
-"StartTimeTitle" = "Start";
-"EndTimeTitle" = "End";
-"WeekOfTheYear" = "Calendar week";
+// Login View
+"login.button.signin" = "Sign in";
+"login.button.needHelp" = "Need Help?";
+"login.button.tryDemo" = "Try the demo";
+"login.placeholder.username" = "Username";
+"login.placeholder.password" = "Password";
+
+// Timesheet View
+"timesheet.navigationTitle" = "Timesheet";
+"timesheet.tableView.section.today" = "Today";
+"timesheet.tableView.section.yesterday" = "Yesterday";
+"timesheet.tableView.cellAction.delete" = "Delete";
+"timesheet.tableView.cellAction.duplicate" = "Duplicate";
+"timesheet.stats.today" = "Hours today";
+"timesheet.stats.week" = "Hours this week";
+"timesheet.stats.month" = "Hours this month";
+
+// TimesheetRecordDetail View
+"timesheetRecordDetail.startTimeTitle" = "Start";
+"timesheetRecordDetail.endTimeTitle" = "End";
+"timesheetRecordDetail.navigationTitle" = "Calendar week";
+
+// Settings View
+"settings.navigationTitle" = "Settings";
+"settings.button.signout" = "Sign out";
+"settings.tableView.section.credits" = "Credits";
+"settings.tableView.section.about" = "About";
+"settings.tableView.cell.openSource" = "Open Source Software";
+"settings.tableView.cell.graphics" = "Graphics & Images";
+"settings.tableView.cell.contributors" = "Contributors";
+"settings.tableView.cell.source" = "Source code";
+"settings.tableView.cell.appVersion" = "App Version";
+"settings.label.madeBy" = "Timeu is built by Sebastian Limbach";
+
+// OSSDetails View
+"ossDetail.navigationTitle" = "Open Source Software";
+"ossDetail.detailText.seperator" = "by";
+
+// GraphicsDetail View
+"graphicsDetail.navigationTitle" = "Graphics & Images";
+"graphicsDetail.detailText.seperator" = "by";
+
+// AddTimesheetRecord View
+"addTimesheetRecord.comingSoon.title" = "Not implemented";
+"addTimesheetRecord.comingSoon.description" = "Sorry, this functionality isn't yet implemented.";

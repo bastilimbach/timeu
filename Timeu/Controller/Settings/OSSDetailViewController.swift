@@ -17,7 +17,7 @@ class OSSDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Open Source Software"
+        navigationItem.title = "ossDetail.navigationTitle".localized()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +30,7 @@ class OSSDetailViewController: UITableViewController {
             cell.accessoryType = .disclosureIndicator
         }
         cell.textLabel?.text = Credits.oss[indexPath.row].name
-        cell.detailTextLabel?.text = "by \(Credits.oss[indexPath.row].author)"
+        cell.detailTextLabel?.text = "\("graphicsDetail.detailText.seperator".localized()) \(Credits.oss[indexPath.row].author)"
         return cell
     }
 

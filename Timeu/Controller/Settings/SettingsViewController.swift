@@ -18,35 +18,35 @@ class SettingsViewController: UITableViewController {
 
     private let openSourceCell: UITableViewCell = {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Open Source Software"
+        cell.textLabel?.text = "settings.tableView.cell.openSource".localized()
         cell.accessoryType = .disclosureIndicator
         return cell
     }()
 
     private let graphicCell: UITableViewCell = {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Graphics & Images"
+        cell.textLabel?.text = "settings.tableView.cell.graphics".localized()
         cell.accessoryType = .disclosureIndicator
         return cell
     }()
 
     private let contributorsCell: UITableViewCell = {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Contributors"
+        cell.textLabel?.text = "settings.tableView.cell.contributors".localized()
         cell.accessoryType = .disclosureIndicator
         return cell
     }()
 
     private let sourceCodeCell: UITableViewCell = {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Source code"
+        cell.textLabel?.text = "settings.tableView.cell.source".localized()
         cell.accessoryType = .disclosureIndicator
         return cell
     }()
 
     private let versionCell: UITableViewCell = {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        cell.textLabel?.text = "App Version"
+        cell.textLabel?.text = "settings.tableView.cell.appVersion".localized()
         cell.detailTextLabel?.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         cell.selectionStyle = .none
         return cell
@@ -54,7 +54,7 @@ class SettingsViewController: UITableViewController {
 
     private let logoutCell: UITableViewCell = {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Sign out"
+        cell.textLabel?.text = "settings.button.signout".localized()
         cell.textLabel?.textColor = .red
         cell.textLabel?.textAlignment = .center
         cell.accessoryType = .none
@@ -86,9 +86,9 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Credits"
+            return "settings.tableView.section.credits".localized()
         case 1:
-            return "About"
+            return "settings.tableView.section.about".localized()
         case 2:
             return nil
         default:
@@ -98,7 +98,7 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         guard section == 2 else { return nil }
-        return "Timeu is built by Sebastian Limbach"
+        return "settings.label.madeBy".localized()
     }
 
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {

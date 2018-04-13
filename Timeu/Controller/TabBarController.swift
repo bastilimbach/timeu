@@ -32,12 +32,12 @@ class TabBarController: ESTabBarController {
         let dummyVC = TimesheetViewController(currentUser: user)
         let settingsVC = SettingsViewController(style: .grouped)
 
-        homeVC.navigationItem.title = "TimesheetVCTitle".localized()
+        homeVC.navigationItem.title = "timesheet.navigationTitle".localized()
         homeVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "timesheetIcon"))
 
         dummyVC.tabBarItem = ESTabBarItem(TabBarAddItemView(), title: nil, image: UIImage(named: "addActivityIcon"))
 
-        settingsVC.navigationItem.title = "SettingsVCTitle".localized()
+        settingsVC.navigationItem.title = "settings.navigationTitle".localized()
         settingsVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "settingsIcon"))
 
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
@@ -57,7 +57,7 @@ class TabBarController: ESTabBarController {
 
         didHijackHandler = { [weak self] _, _, _ in
             DispatchQueue.main.async {
-                let alertView = UIAlertController.init(title: "Not implemented", message: "Sorry, this functionality isn't yet implemented.", preferredStyle: .alert)
+                let alertView = UIAlertController.init(title: "addTimesheetRecord.comingSoon.title".localized(), message: "addTimesheetRecord.comingSoon.description".localized(), preferredStyle: .alert)
                 alertView.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self?.present(alertView, animated: true)
             }

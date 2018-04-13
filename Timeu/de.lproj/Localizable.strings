@@ -10,12 +10,48 @@
 //  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-"TimesheetVCTitle" = "Zeiterfassung";
-"SettingsVCTitle" = "Einstellungen";
-"Today" = "Heute";
-"Yesterday" = "Gestern";
-"DeleteActionTitle" = "Löschen";
-"DuplicateActionTitle" = "Duplizieren";
-"StartTimeTitle" = "Start";
-"EndTimeTitle" = "Ende";
-"WeekOfTheYear" = "Kalenderwoche";
+// Login View
+"login.button.signin" = "Einloggen";
+"login.button.needHelp" = "Hilfe benötigt?";
+"login.button.tryDemo" = "Demo ausprobieren";
+"login.placeholder.username" = "Benutzername";
+"login.placeholder.password" = "Passwort";
+
+// Timesheet View
+"timesheet.navigationTitle" = "Timesheet";
+"timesheet.tableView.section.today" = "Heute";
+"timesheet.tableView.section.yesterday" = "Gestern";
+"timesheet.tableView.cellAction.delete" = "Löschen";
+"timesheet.tableView.cellAction.duplicate" = "Duplizieren";
+"timesheet.stats.today" = "Stunden heute";
+"timesheet.stats.week" = "Stunden dieser Woche";
+"timesheet.stats.month" = "Stunden diesen Monat";
+
+// TimesheetRecordDetail View
+"timesheetRecordDetail.startTimeTitle" = "Start";
+"timesheetRecordDetail.endTimeTitle" = "Ende";
+"timesheetRecordDetail.navigationTitle" = "Kalenderwoche";
+
+// Settings View
+"settings.navigationTitle" = "Einstellungen";
+"settings.button.signout" = "Ausloggen";
+"settings.tableView.section.credits" = "Credits";
+"settings.tableView.section.about" = "Über";
+"settings.tableView.cell.openSource" = "Open Source Software";
+"settings.tableView.cell.graphics" = "Grafiken & Bilder";
+"settings.tableView.cell.contributors" = "Mitwirkende";
+"settings.tableView.cell.source" = "Quelltext";
+"settings.tableView.cell.appVersion" = "App Version";
+"settings.label.madeBy" = "Timeu wird entwickelt von Sebastian Limbach";
+
+// OSSDetails View
+"ossDetail.navigationTitle" = "Open Source Software";
+"ossDetail.detailText.seperator" = "von";
+
+// GraphicsDetail View
+"graphicsDetail.navigationTitle" = "Grafiken & Bilder";
+"graphicsDetail.detailText.seperator" = "von";
+
+// AddTimesheetRecord View
+"addTimesheetRecord.comingSoon.title" = "Nicht implementiert";
+"addTimesheetRecord.comingSoon.description" = "Entschuldigung, diese Funktionalität ist noch nicht implementiert.";

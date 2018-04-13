@@ -17,7 +17,7 @@ class GraphicsDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Graphics & Images"
+        navigationItem.title = "graphicsDetail.navigationTitle".localized()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +30,7 @@ class GraphicsDetailViewController: UITableViewController {
             cell.accessoryType = .disclosureIndicator
         }
         cell.textLabel?.text = Credits.graphics[indexPath.row].name
-        cell.detailTextLabel?.text = "by \(Credits.graphics[indexPath.row].author)"
+        cell.detailTextLabel?.text = "\("graphicsDetail.detailText.seperator".localized()) \(Credits.graphics[indexPath.row].author)"
         return cell
     }
 

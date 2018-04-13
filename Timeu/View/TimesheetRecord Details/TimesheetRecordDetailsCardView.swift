@@ -105,7 +105,7 @@ class TimesheetRecordDetailsCardView: UIView {
 
     private let startTimeTitle: UILabel = {
         let label = UILabel()
-        label.text = "StartTimeTitle".localized().uppercased()
+        label.text = "timesheetRecordDetail.startTimeTitle".localized().uppercased()
         label.font = .systemFont(ofSize: 20, weight: .heavy)
         label.textColor = .timeuGrayTone1
         return label
@@ -113,7 +113,7 @@ class TimesheetRecordDetailsCardView: UIView {
 
     private let endTimeTitle: UILabel = {
         let label = UILabel()
-        label.text = "EndTimeTitle".localized().uppercased()
+        label.text = "timesheetRecordDetail.endTimeTitle".localized().uppercased()
         label.font = .systemFont(ofSize: 20, weight: .heavy)
         label.textAlignment = .right
         label.textColor = .timeuGrayTone1

@@ -51,7 +51,7 @@ class TimesheetRecordDetailsViewController: UIViewController {
         super.viewDidLoad()
         view = detailsView
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "\("WeekOfTheYear".localized()) \(Calendar.current.component(.weekOfYear, from: timesheetRecord.startDateTime))"
+        navigationItem.title = "\("timesheetRecordDetail.navigationTitle".localized()) \(Calendar.current.component(.weekOfYear, from: timesheetRecord.startDateTime))"
     }
 
 }

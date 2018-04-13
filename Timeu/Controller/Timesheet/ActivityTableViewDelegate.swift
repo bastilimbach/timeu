@@ -38,9 +38,9 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
 
         switch dateFormatter.string(from: sectionDate) {
         case dateFormatter.string(from: today):
-            header.sectionText = "Today".localized()
+            header.sectionText = "timesheet.tableView.section.today".localized()
         case dateFormatter.string(from: yesterday):
-            header.sectionText = "Yesterday".localized()
+            header.sectionText = "timesheet.tableView.section.yesterday".localized()
         default:
             header.sectionText = dateFormatter.string(from: sectionDate)
         }
@@ -60,7 +60,7 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
 extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        let deleteAction = SwipeAction(style: .destructive, title: "DeleteActionTitle".localized()) { _, _ in
+        let deleteAction = SwipeAction(style: .destructive, title: "timesheet.tableView.cellAction.delete".localized()) { _, _ in
             print("Delete action triggerd!")
         }
         deleteAction.image = UIImage(named: "deleteIcon")
@@ -68,7 +68,7 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
         deleteAction.highlightedBackgroundColor = .timeuGray
         deleteAction.textColor = .lightGray
 
-        let duplicateAction = SwipeAction(style: .default, title: "DuplicateActionTitle".localized()) { _, _ in
+        let duplicateAction = SwipeAction(style: .default, title: "timesheet.tableView.cellAction.duplicate".localized()) { _, _ in
             print("Save action triggerd!")
         }
         duplicateAction.image = UIImage(named: "duplicateIcon")
