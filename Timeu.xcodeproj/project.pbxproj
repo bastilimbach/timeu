@@ -40,6 +40,7 @@
 		FDD678851F7D944E002F4D33 /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */; };
 		FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD678871F7D9616002F4D33 /* Extensions.swift */; };
 		FDE88B582080D30D00BC1384 /* SwiftMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE88B572080D30D00BC1384 /* SwiftMessages.framework */; };
+		FDE88B5A2080DF4F00BC1384 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE88B592080DF4F00BC1384 /* ErrorMessage.swift */; };
 		FDE9C2EE205317E7009250D9 /* OSSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */; };
 		FDE9C2F020531FFF009250D9 /* GraphicsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */; };
 		FDE9C2F2205320E1009250D9 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9C2F1205320E1009250D9 /* Credits.swift */; };
@@ -89,6 +90,7 @@
 		FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewController.swift; sourceTree = "<group>"; };
 		FDD678871F7D9616002F4D33 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDE88B572080D30D00BC1384 /* SwiftMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMessages.framework; path = Carthage/Build/iOS/SwiftMessages.framework; sourceTree = "<group>"; };
+		FDE88B592080DF4F00BC1384 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSSDetailViewController.swift; sourceTree = "<group>"; };
 		FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsDetailViewController.swift; sourceTree = "<group>"; };
 		FDE9C2F1205320E1009250D9 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				FD6FC36A2038787C001012CA /* Timesheet */,
 				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
 				FD3E3E771F82F4CF00B5D291 /* NetworkController.swift */,
+				FDE88B592080DF4F00BC1384 /* ErrorMessage.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				FDB0BF551F81245C005AAA0F /* ActivityTableViewHeader.swift in Sources */,
 				FD6FC36E203879BD001012CA /* LoginViewController.swift in Sources */,
 				FDB0BF581F814CBB005AAA0F /* Activity.swift in Sources */,
+				FDE88B5A2080DF4F00BC1384 /* ErrorMessage.swift in Sources */,
 				FD3E3E7C1F83E37100B5D291 /* KimaiAPI.swift in Sources */,
 				FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */,
 				FD6B0D22202E185000269742 /* ActivityTableView.swift in Sources */,

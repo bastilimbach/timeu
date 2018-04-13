@@ -115,8 +115,8 @@ class LoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         self?.present(TabBarController(currentUser: user), animated: true)
                     }
-                case .failure(let error):
-                    print(error)
+                case .failure( _):
+                    ErrorMessage.show(message: "error.message.wrongCredentials".localized())
                 }
             }
         }
@@ -130,10 +130,11 @@ class LoginViewController: UIViewController {
                 if metadata.envelope == "JSON-RPC-2.0" {
                     completion(apiURL)
                 } else {
+                    ErrorMessage.show(message: "\("error.message.unsupportedVersion".localized()): \(metadata.envelope)")
                     completion(nil)
                 }
-            case .failure(let error):
-                print(error)
+            case .failure( _):
+                ErrorMessage.show(message: "error.message.endpointConnectionError".localized())
                 completion(nil)
             }
 

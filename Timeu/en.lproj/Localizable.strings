@@ -55,3 +55,10 @@
 // AddTimesheetRecord View
 "addTimesheetRecord.comingSoon.title" = "Not implemented";
 "addTimesheetRecord.comingSoon.description" = "Sorry, this functionality isn't yet implemented.";
+
+// Error messages
+"error.message.wrongCredentials" = "Wrong username or password";
+"error.message.unsupportedVersion" = "Unsupported Kimai version";
+"error.message.endpointConnectionError" = "Couldn't connect to the enpoint";
+"error.message.noTimesheetRecords" = "No records found";
+"error.message.couldntReceiveRecords" = "Couldn't get timesheet records";

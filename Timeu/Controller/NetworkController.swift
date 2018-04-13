@@ -39,7 +39,10 @@ class NetworkController {
             request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
             let task = self.session.dataTask(with: request) { (data, _, error) in
-                guard let data = data else { return }
+                guard let data = data else {
+                    completion(.failure(error!))
+                    return
+                }
                 let decoder = JSONDecoder()
                 do {
                     let metadata = try decoder.decode(KimaiAPIMetadata.self, from: data)

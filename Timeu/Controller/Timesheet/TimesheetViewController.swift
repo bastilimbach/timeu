@@ -59,6 +59,17 @@ class TimesheetViewController: UIViewController {
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {
         NetworkController.shared.getTimesheetFor(currentUser) { [weak self] result in
             if case let .success(activites) = result {
+                if activites.isEmpty {
+                    ErrorMessage.show(message: "error.message.noTimesheetRecords".localized(), withTheme: .warning)
+                    self?.tableViewDatasource.timesheetRows = nil
+                    self?.tableViewDatasource.timesheetSections = nil
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                        self?.tableView.refreshControl?.endRefreshing()
+                    }
+                    return
+                }
+
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .short
 
@@ -117,6 +128,8 @@ class TimesheetViewController: UIViewController {
                     self?.tableView.reloadData()
                     self?.tableView.refreshControl?.endRefreshing()
                 }
+            } else if case .failure( _) = result {
+                ErrorMessage.show(message: "error.message.couldntReceiveRecords".localized())
             }
         }
     }
