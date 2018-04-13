@@ -3,3 +3,4 @@ github "eggswift/ESTabBarController" ~> 2.6.0
 github "SwipeCellKit/SwipeCellKit" ~> 1.9.1
 github "kishikawakatsumi/KeychainAccess" ~> 3.1.0
 github "fahlout/PasswordExtension" ~> 4.1.0
+github "SwiftKickMobile/SwiftMessages" ~> 4.1.2

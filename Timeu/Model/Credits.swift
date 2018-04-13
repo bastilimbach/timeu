@@ -24,7 +24,8 @@ struct Credits {
         Project(name: "ESTabBarController", author: "Vincent Li", website: URL(string: "https://github.com/eggswift/ESTabBarController")),
         Project(name: "SwipeCellKit", author: "Jeremy Koch", website: URL(string: "https://github.com/SwipeCellKit/SwipeCellKit")),
         Project(name: "KeychainAccess", author: "Kishikawa Katsumi", website: URL(string: "https://github.com/kishikawakatsumi/KeychainAccess")),
-        Project(name: "PasswordExtension", author: "Niklas Fahl", website: URL(string: "https://github.com/fahlout/PasswordExtension"))
+        Project(name: "PasswordExtension", author: "Niklas Fahl", website: URL(string: "https://github.com/fahlout/PasswordExtension")),
+        Project(name: "SwiftMessages", author: "Timothy Moose", website: URL(string: "https://github.com/SwiftKickMobile/SwiftMessages"))
     ]
 
     static let graphics = [
