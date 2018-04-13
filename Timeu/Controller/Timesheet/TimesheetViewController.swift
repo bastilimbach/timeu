@@ -58,8 +58,8 @@ class TimesheetViewController: UIViewController {
 
     @objc func getTimesheet(_ refreshControl: UIRefreshControl? = nil) {
         NetworkController.shared.getTimesheetFor(currentUser) { [weak self] result in
-            if case let .success(activites) = result {
-                if activites.isEmpty {
+            if case let .success(activities) = result {
+                if activities.isEmpty {
                     ErrorMessage.show(message: "error.message.noTimesheetRecords".localized(), withTheme: .warning)
                     self?.tableViewDatasource.timesheetRows = nil
                     self?.tableViewDatasource.timesheetSections = nil
@@ -73,7 +73,7 @@ class TimesheetViewController: UIViewController {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .short
 
-                var lastDate: Date = activites[0].startDateTime
+                var lastDate: Date = activities[0].startDateTime
                 var tempTimesheetRecords = [[Any]()]
                 var tempTimesheetSections: [Date] = [lastDate]
                 var sectionIndex: Int = 0
@@ -82,7 +82,7 @@ class TimesheetViewController: UIViewController {
                 var secondsThisWeek = 0
                 var secondsThisMonth = 0
 
-                for activity in activites {
+                for activity in activities {
                     let secondsDifferences = Calendar.current.dateComponents([.second], from: activity.startDateTime, to: activity.endDateTime).second ?? 0
                     let day = Calendar.current.compare(activity.startDateTime, to: Date(), toGranularity: .day)
                     if day == .orderedSame {
