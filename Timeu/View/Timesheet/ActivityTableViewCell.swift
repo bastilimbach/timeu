@@ -48,10 +48,14 @@ class ActivityTableViewCell: SwipeTableViewCell {
         firstDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: size, height: size)).cgPath
         firstDot.fillColor = UIColor.timeuGrayTone3.cgColor
         let secondDot = CAShapeLayer()
-        secondDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: size + margin, width: size, height: size)).cgPath
+        secondDot.path = UIBezierPath.init(
+            ovalIn: CGRect.init(x: 0, y: size + margin, width: size, height: size
+        )).cgPath
         secondDot.fillColor = UIColor.timeuGrayTone2.cgColor
         let thirdDot = CAShapeLayer()
-        thirdDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: (size + margin) * 2, width: size, height: size)).cgPath
+        thirdDot.path = UIBezierPath.init(
+            ovalIn: CGRect.init(x: 0, y: (size + margin) * 2, width: size, height: size
+        )).cgPath
         thirdDot.fillColor = UIColor.timeuGrayTone1.cgColor
 
         view.layer.addSublayer(firstDot)
@@ -124,7 +128,9 @@ class ActivityTableViewCell: SwipeTableViewCell {
 
     private func setupConstrains() {
         card.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(cardPadding / 3, cardPadding, cardPadding / 3, cardPadding))
+            make.edges.equalToSuperview().inset(UIEdgeInsets.init(
+                top: cardPadding / 3, left: cardPadding, bottom: cardPadding / 3, right: cardPadding
+            ))
         }
 
         dotsView.snp.makeConstraints { make in
@@ -138,13 +144,13 @@ class ActivityTableViewCell: SwipeTableViewCell {
             make.centerY.equalToSuperview()
             make.height.equalTo(50)
         }
-        
+
         customerLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(10)
             make.left.equalTo(timeView.snp.right).offset(10)
             make.right.equalTo(disclosureIndicator.snp.left).offset(-5)
         }
-        
+
         projectLabel.snp.makeConstraints { make in
             make.left.right.equalTo(customerLabel)
             make.bottom.equalToSuperview().inset(10)

@@ -13,7 +13,7 @@
 import Foundation
 
 struct Activity {
-    let id: Int
+    let recordId: Int
     let description: String?
     let customerName: String
     let projectName: String
@@ -22,7 +22,7 @@ struct Activity {
     let endDateTime: Date
 
     enum CodingKeys: String, CodingKey {
-        case id = "timeEntryID"
+        case recordId = "timeEntryID"
         case description
         case customerName
         case projectName
@@ -36,7 +36,7 @@ extension Activity: Decodable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = Int(try container.decode(String.self, forKey: .id))!
+        recordId = Int(try container.decode(String.self, forKey: .recordId))!
         description = try container.decodeIfPresent(String.self, forKey: .description)
         customerName = try container.decode(String.self, forKey: .customerName)
         projectName = try container.decode(String.self, forKey: .projectName)
@@ -46,4 +46,3 @@ extension Activity: Decodable {
     }
 
 }
-

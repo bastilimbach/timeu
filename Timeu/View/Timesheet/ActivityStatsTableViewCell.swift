@@ -29,7 +29,6 @@ class ActivityStatsTableViewCell: UITableViewCell {
         return collectionView
     }()
 
-
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear

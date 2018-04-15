@@ -35,7 +35,9 @@ class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
         guard let row = timesheetRows?[indexPath.section][indexPath.row] else { return UITableViewCell() }
 
         if indexPath.section == 0 {
-            return getCell(forTimesheetStats: timesheetRows?[indexPath.section] as! [TimesheetStats], of: tableView)
+            guard let timesheetStats = timesheetRows?[indexPath.section]
+                as? [TimesheetStats] else { return UITableViewCell() }
+            return getCell(forTimesheetStats: timesheetStats, of: tableView)
         }
 
         guard let activity = row as? Activity else { return UITableViewCell() }
@@ -43,11 +45,13 @@ class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
     }
 
     private func getCell(forTimesheetRecord record: Activity, of tableView: UITableView) -> ActivityTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableView.CellIdentifiers.activityCell.rawValue) as! ActivityTableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ActivityTableView.CellIdentifiers.activityCell.rawValue
+            ) as? ActivityTableViewCell else { return ActivityTableViewCell() }
 
         let timeFormatter = DateFormatter()
         timeFormatter.timeStyle = .short
- 
+
         cell.customerLabel.text = record.customerName
         cell.projectLabel.text = record.projectName
         cell.startTimeLabel.text = timeFormatter.string(from: record.startDateTime)
@@ -57,8 +61,11 @@ class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
         return cell
     }
 
-    private func getCell(forTimesheetStats stats: [TimesheetStats], of tableView: UITableView) -> ActivityStatsTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableView.CellIdentifiers.activityStatsCell.rawValue) as! ActivityStatsTableViewCell
+    private func getCell(forTimesheetStats stats: [TimesheetStats],
+                         of tableView: UITableView) -> ActivityStatsTableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ActivityTableView.CellIdentifiers.activityStatsCell.rawValue
+            ) as? ActivityStatsTableViewCell else { return ActivityStatsTableViewCell() }
 
         collectionViewDatasource.setStats(newStats: stats)
         cell.collectionView.dataSource = collectionViewDatasource

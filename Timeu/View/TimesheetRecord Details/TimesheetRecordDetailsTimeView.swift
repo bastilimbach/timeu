@@ -62,10 +62,14 @@ class TimesheetRecordDetailsTimeView: UIStackView {
         firstDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: size, height: size)).cgPath
         firstDot.fillColor = UIColor.timeuGrayTone1.cgColor
         let secondDot = CAShapeLayer()
-        secondDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: size + margin, y: 0, width: size, height: size)).cgPath
+        secondDot.path = UIBezierPath.init(
+            ovalIn: CGRect.init(x: size + margin, y: 0, width: size, height: size)
+        ).cgPath
         secondDot.fillColor = UIColor.timeuGrayTone2.cgColor
         let thirdDot = CAShapeLayer()
-        thirdDot.path = UIBezierPath.init(ovalIn: CGRect.init(x: (size + margin) * 2, y: 0, width: size, height: size)).cgPath
+        thirdDot.path = UIBezierPath.init(
+            ovalIn: CGRect.init(x: (size + margin) * 2, y: 0, width: size, height: size)
+        ).cgPath
         thirdDot.fillColor = UIColor.timeuGrayTone3.cgColor
 
         view.layer.addSublayer(firstDot)

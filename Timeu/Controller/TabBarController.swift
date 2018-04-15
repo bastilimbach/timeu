@@ -46,7 +46,7 @@ class TabBarController: ESTabBarController {
         let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
         settingsNavigationController.navigationBar.prefersLargeTitles = true
 
-        let _ = [homeVC, dummyVC, settingsVC].map { $0.view.backgroundColor = .timeuGray }
+        _ = [homeVC, dummyVC, settingsVC].map { $0.view.backgroundColor = .timeuGray }
 
         shouldHijackHandler = { _, _, index in
             if index == 1 {
@@ -57,7 +57,11 @@ class TabBarController: ESTabBarController {
 
         didHijackHandler = { [weak self] _, _, _ in
             DispatchQueue.main.async {
-                let alertView = UIAlertController.init(title: "addTimesheetRecord.comingSoon.title".localized(), message: "addTimesheetRecord.comingSoon.description".localized(), preferredStyle: .alert)
+                let alertView = UIAlertController.init(
+                    title: "addTimesheetRecord.comingSoon.title".localized(),
+                    message: "addTimesheetRecord.comingSoon.description".localized(),
+                    preferredStyle: .alert
+                )
                 alertView.addAction(UIAlertAction(title: "Ok", style: .cancel))
                 self?.present(alertView, animated: true)
             }

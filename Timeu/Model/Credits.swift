@@ -10,6 +10,7 @@
 //  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
+// swiftlint:disable line_length
 import Foundation
 
 struct Project {

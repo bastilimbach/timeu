@@ -27,5 +27,4 @@ class TabBarItemView: ESTabBarItemContentView {
         fatalError("init(coder:) has not been implemented")
     }
 
-
 }

@@ -33,7 +33,7 @@ class TabBarAddItemView: ESTabBarItemContentView {
         imageView.transform = transform
         superview?.bringSubview(toFront: self)
 
-        insets = UIEdgeInsetsMake(-22, 0, 0, 0)
+        insets = UIEdgeInsets(top: -22, left: 0, bottom: 0, right: 0)
         iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightIconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         backdropColor = .clear
@@ -46,7 +46,7 @@ class TabBarAddItemView: ESTabBarItemContentView {
         imageView.center = CGPoint.init(x: self.bounds.size.width / 2.0, y: self.bounds.size.height / 2.0)
     }
 
-    public override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
+    public override func highlightAnimation(animated: Bool, completion: (() -> Void)?) {
         UIView.beginAnimations("decreaseSize", context: nil)
         UIView.setAnimationDuration(0.2)
         let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
@@ -55,7 +55,7 @@ class TabBarAddItemView: ESTabBarItemContentView {
         completion?()
     }
 
-    public override func dehighlightAnimation(animated: Bool, completion: (() -> ())?) {
+    public override func dehighlightAnimation(animated: Bool, completion: (() -> Void)?) {
         UIView.beginAnimations("resetSize", context: nil)
         UIView.setAnimationDuration(0.2)
         let transform = CGAffineTransform.identity

@@ -102,7 +102,7 @@ class SettingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        let footer: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        guard let footer = view as? UITableViewHeaderFooterView else { return }
         footer.textLabel?.textAlignment = .center
     }
 
@@ -124,8 +124,8 @@ class SettingsViewController: UITableViewController {
     }
 
     private func showWebsite(_ url: URL) {
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true)
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
     }
 
     private func performLogout() {
