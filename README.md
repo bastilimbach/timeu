@@ -3,10 +3,13 @@ With **Timeu** you can view ~~, add, edit and delete~~ your Timesheet entries fr
 
 # To Do's
 - [x] Make the project open source
-- [ ] Add [SwiftLint](https://github.com/realm/SwiftLint)
+- [x] Add [SwiftLint](https://github.com/realm/SwiftLint) ([#1](https://github.com/bastilimbach/timeu/pull/1))
 - [ ] Add [fastlane](https://github.com/fastlane/fastlane) for automatic App Store deployment
 - [ ] Add Tests
+- [ ] Add rudimentary continuous integration
 - [ ] Implement the ability to `add`, `edit` and `delete` timesheet records
+- [ ] Refactor the NetworkController to get rid of the Singleton
+- [ ] Publish v1.0.0 to the App Store
 
 # Build from source
 1. Clone the repository: `git clone https://github.com/bastilimbach/timeu`
