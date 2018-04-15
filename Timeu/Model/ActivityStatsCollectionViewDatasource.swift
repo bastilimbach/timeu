@@ -29,8 +29,12 @@ class ActivityStatsCollectionViewDatasource: NSObject, UICollectionViewDataSourc
         return stats?.count ?? 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "unknown", for: indexPath) as! ActivityStatsCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "unknown",
+                for: indexPath
+            ) as? ActivityStatsCollectionViewCell else { return ActivityStatsCollectionViewCell() }
         cell.number = stats?[indexPath.row].time
         cell.numberDescription = stats?[indexPath.row].description
         return cell

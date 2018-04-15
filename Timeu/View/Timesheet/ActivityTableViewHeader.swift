@@ -47,7 +47,7 @@ class ActivityTableViewHeader: UIView {
 
     private func setupConstraints() {
         headerLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(20, 20, 5, 20))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 20, left: 20, bottom: 5, right: 20))
         }
     }
 

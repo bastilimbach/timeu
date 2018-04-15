@@ -26,14 +26,20 @@ class TimesheetRecordDetailsViewController: UIViewController {
         shortTimeFormatter.dateStyle = .none
         shortTimeFormatter.timeStyle = .short
 
-        view.detailsCardView.day = DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: timesheetRecord.startDateTime) - 1]
+        view.detailsCardView.day = DateFormatter().weekdaySymbols[
+            Calendar.current.component(.weekday, from: timesheetRecord.startDateTime) - 1
+        ]
         view.detailsCardView.task = timesheetRecord.task
         view.detailsCardView.customer = timesheetRecord.customerName
         view.detailsCardView.project = timesheetRecord.projectName
-        view.detailsCardView.startEndTimeView.startTimeLabel.text = shortTimeFormatter.string(from: timesheetRecord.startDateTime)
-        view.detailsCardView.startEndTimeView.startDateLabel.text = mediumDateFormatter.string(from: timesheetRecord.startDateTime)
-        view.detailsCardView.startEndTimeView.endTimeLabel.text = shortTimeFormatter.string(from: timesheetRecord.endDateTime)
-        view.detailsCardView.startEndTimeView.endDateLabel.text = mediumDateFormatter.string(from: timesheetRecord.endDateTime)
+        view.detailsCardView.startEndTimeView.startTimeLabel.text = shortTimeFormatter.string(
+            from: timesheetRecord.startDateTime)
+        view.detailsCardView.startEndTimeView.startDateLabel.text = mediumDateFormatter.string(
+            from: timesheetRecord.startDateTime)
+        view.detailsCardView.startEndTimeView.endTimeLabel.text = shortTimeFormatter.string(
+            from: timesheetRecord.endDateTime)
+        view.detailsCardView.startEndTimeView.endDateLabel.text = mediumDateFormatter.string(
+            from: timesheetRecord.endDateTime)
         view.descriptionText = timesheetRecord.description
         return view
     }()
@@ -51,7 +57,10 @@ class TimesheetRecordDetailsViewController: UIViewController {
         super.viewDidLoad()
         view = detailsView
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "\("timesheetRecordDetail.navigationTitle".localized()) \(Calendar.current.component(.weekOfYear, from: timesheetRecord.startDateTime))"
+        let calendarWeek = Calendar.current.component(.weekOfYear, from: timesheetRecord.startDateTime)
+        navigationItem.title = """
+            \("timesheetRecordDetail.navigationTitle".localized()) \(calendarWeek)
+            """
     }
 
 }

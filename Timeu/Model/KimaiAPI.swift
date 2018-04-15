@@ -30,7 +30,10 @@ extension KimaiEntity: Decodable {
 
     init(from decoder: Decoder) throws {
         let rootContainer = try decoder.container(keyedBy: KimaiAPIResponseKeys.self)
-        let resultContainer = try rootContainer.nestedContainer(keyedBy: KimaiAPIResponseKeys.KimaiResultKeys.self, forKey: .result)
+        let resultContainer = try rootContainer.nestedContainer(
+            keyedBy: KimaiAPIResponseKeys.KimaiResultKeys.self,
+            forKey: .result
+        )
         success = try resultContainer.decode(Bool.self, forKey: .success)
         items = try resultContainer.decode([KimaiEntityItem].self, forKey: .items)
     }
@@ -48,4 +51,3 @@ struct KimaiAPIMetadata: Codable {
     let SMDVersion: String
     let target: String
 }
-

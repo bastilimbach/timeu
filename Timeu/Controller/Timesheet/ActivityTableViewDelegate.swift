@@ -54,13 +54,15 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
             let activity = row as? Activity else { return }
         pushHandler?(activity)
     }
-    
+
 }
 
 extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        let deleteAction = SwipeAction(style: .destructive, title: "timesheet.tableView.cellAction.delete".localized()) { _, _ in
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath,
+                   for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        let deleteAction = SwipeAction(style: .destructive,
+                                       title: "timesheet.tableView.cellAction.delete".localized()) { _, _ in
             print("Delete action triggerd!")
         }
         deleteAction.image = UIImage(named: "deleteIcon")
@@ -68,7 +70,8 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
         deleteAction.highlightedBackgroundColor = .timeuGray
         deleteAction.textColor = .lightGray
 
-        let duplicateAction = SwipeAction(style: .default, title: "timesheet.tableView.cellAction.duplicate".localized()) { _, _ in
+        let duplicateAction = SwipeAction(style: .default,
+                                          title: "timesheet.tableView.cellAction.duplicate".localized()) { _, _ in
             print("Save action triggerd!")
         }
         duplicateAction.image = UIImage(named: "duplicateIcon")
@@ -76,7 +79,6 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
         duplicateAction.highlightedBackgroundColor = .timeuGray
         duplicateAction.textColor = .lightGray
         duplicateAction.font = .systemFont(ofSize: 8)
-
 
 //        switch orientation {
 //        case .right:
@@ -88,7 +90,8 @@ extension ActivityTableViewDelegate: SwipeTableViewCellDelegate {
 
     }
 
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath,
+                   for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
         options.transitionStyle = .drag
         options.backgroundColor = .clear

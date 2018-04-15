@@ -56,7 +56,8 @@ class NetworkController {
     }
 
     /// Get api key for a specific user
-    func getTokenFor(_ userName: String, withPassword password: String, endpoint: URL, completion: @escaping (Result<APIKey>) -> Void) {
+    func getTokenFor(_ userName: String, withPassword password: String, endpoint: URL,
+                     completion: @escaping (Result<APIKey>) -> Void) {
         let params = [ "username": userName, "password": password ] as [String: Any]
         performKimai(method: "authenticate", withParams: params, endpoint: endpoint) { result in
             guard case let .success(data) = result else { return }
@@ -87,7 +88,8 @@ class NetworkController {
         }
     }
 
-    private func performKimai(method: String, withParams params: [String: Any], endpoint: URL, completion: @escaping (Result<Data>) -> Void) {
+    private func performKimai(method: String, withParams params: [String: Any], endpoint: URL,
+                              completion: @escaping (Result<Data>) -> Void) {
         DispatchQueue.global().async {
             var request = URLRequest(url: endpoint)
             request.httpMethod = "POST"
@@ -112,8 +114,9 @@ class NetworkController {
                             completion(.failure(error))
                             print("Request error: \(error)")
                         }
-                        let response = response as! HTTPURLResponse
-                        print("HTTP Status code: \(response.statusCode)")
+                        if let response = response as? HTTPURLResponse {
+                            print("HTTP Status code: \(response.statusCode)")
+                        }
                         return
                 }
                 completion(.success(responseData))

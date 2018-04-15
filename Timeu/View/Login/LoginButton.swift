@@ -22,7 +22,9 @@ class LoginButton: UIButton {
 
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? UIColor.init(r: 0, g: 0, b: 0, a: 1) : UIColor.init(r: 102, g: 61, b: 188, a: 1)
+            backgroundColor = isHighlighted
+                ? UIColor.init(r: 0, g: 0, b: 0, a: 1)
+                : UIColor.init(r: 102, g: 61, b: 188, a: 1)
         }
     }
 
@@ -47,8 +49,24 @@ class LoginButton: UIButton {
         activityIndicator.color = self.titleColor(for: .normal)
         self.addSubview(activityIndicator)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        let xCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: activityIndicator, attribute: .centerX, multiplier: 1, constant: 0)
-        let yCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
+        let xCenterConstraint = NSLayoutConstraint(
+            item: self,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: activityIndicator,
+            attribute: .centerX,
+            multiplier: 1,
+            constant: 0
+        )
+        let yCenterConstraint = NSLayoutConstraint(
+            item: self,
+            attribute: .centerY,
+            relatedBy: .equal,
+            toItem: activityIndicator,
+            attribute: .centerY,
+            multiplier: 1,
+            constant: 0
+        )
         self.addConstraints([xCenterConstraint, yCenterConstraint])
         return activityIndicator
     }()

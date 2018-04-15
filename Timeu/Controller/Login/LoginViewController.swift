@@ -40,8 +40,18 @@ class LoginViewController: UIViewController {
     }
 
     private func setupObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: NSNotification.Name.UIKeyboardWillHide,
+            object: nil
+        )
     }
 
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -61,9 +71,9 @@ class LoginViewController: UIViewController {
         let urlString = "https://sebastianlimbach.com"
 
         if let url = URL(string: urlString) {
-            let vc = SFSafariViewController(url: url)
-            vc.delegate = self
-            present(vc, animated: true)
+            let safariVC = SFSafariViewController(url: url)
+            safariVC.delegate = self
+            present(safariVC, animated: true)
         }
     }
 
@@ -82,8 +92,9 @@ class LoginViewController: UIViewController {
         if let kimaiURL = loginView.kimaiURL {
             searchURL = String(describing: kimaiURL)
         }
-        
-        PasswordExtension.shared.findLoginDetails(for: searchURL, viewController: self, sender: nil) { [weak self] (loginDetails, error) in
+
+        PasswordExtension.shared.findLoginDetails(for: searchURL, viewController: self,
+                                                  sender: nil) { [weak self] loginDetails, _ in
             if let loginDetails = loginDetails {
                 self?.loginView.username = loginDetails.username
                 self?.loginView.password = loginDetails.password
@@ -111,11 +122,14 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success(let result):
                     let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: result.apiKey)
-                    UserDefaults.standard.set(["username": user.userName, "endpoint": String(describing: user.apiEndpoint)], forKey: "currentUser")
+                    UserDefaults.standard.set(
+                        ["username": user.userName, "endpoint": String(describing: user.apiEndpoint)],
+                        forKey: "currentUser"
+                    )
                     DispatchQueue.main.async {
                         self?.present(TabBarController(currentUser: user), animated: true)
                     }
-                case .failure( _):
+                case .failure:
                     ErrorMessage.show(message: "error.message.wrongCredentials".localized())
                 }
             }
@@ -130,10 +144,12 @@ class LoginViewController: UIViewController {
                 if metadata.envelope == "JSON-RPC-2.0" {
                     completion(apiURL)
                 } else {
-                    ErrorMessage.show(message: "\("error.message.unsupportedVersion".localized()): \(metadata.envelope)")
+                    ErrorMessage.show(
+                        message: "\("error.message.unsupportedVersion".localized()): \(metadata.envelope)"
+                    )
                     completion(nil)
                 }
-            case .failure( _):
+            case .failure:
                 ErrorMessage.show(message: "error.message.endpointConnectionError".localized())
                 completion(nil)
             }
@@ -161,7 +177,7 @@ extension LoginViewController: UITextFieldDelegate {
         if let nextField = loginView.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         } else {
-            if (textField.returnKeyType == UIReturnKeyType.go) {
+            if textField.returnKeyType == UIReturnKeyType.go {
                 textField.resignFirstResponder()
                 performLogin()
             }

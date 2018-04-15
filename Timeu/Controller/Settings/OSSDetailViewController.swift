@@ -30,7 +30,9 @@ class OSSDetailViewController: UITableViewController {
             cell.accessoryType = .disclosureIndicator
         }
         cell.textLabel?.text = Credits.oss[indexPath.row].name
-        cell.detailTextLabel?.text = "\("graphicsDetail.detailText.seperator".localized()) \(Credits.oss[indexPath.row].author)"
+        cell.detailTextLabel?.text = """
+            \("ossDetail.detailText.seperator".localized()) \(Credits.oss[indexPath.row].author)
+            """
         return cell
     }
 
