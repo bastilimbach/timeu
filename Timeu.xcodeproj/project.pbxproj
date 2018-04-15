@@ -121,11 +121,6 @@
 		FD4BB7251F7E4E390078B749 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FDF77DE12047026300E7E0B3 /* TimesheetRecord Details */,
-				FD6FC36B20387948001012CA /* Login */,
-				FD6FC36720387764001012CA /* Timesheet */,
-				FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */,
-				FDEC4A0320338F2300944FAE /* TabBarItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,48 +128,27 @@
 		FD6C12DA2051D4570068D584 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				FD6C12DB2051D46F0068D584 /* SettingsViewController.swift */,
-				FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */,
-				FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */,
+				FDDC10542083DF5C00D8A0A6 /* Model */,
+				FDDC10532083DF4400D8A0A6 /* Controller */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		FD6FC36720387764001012CA /* Timesheet */ = {
-			isa = PBXGroup;
-			children = (
-				FD6B0D21202E185000269742 /* ActivityTableView.swift */,
-				FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */,
-				FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */,
-				FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */,
-				FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */,
-			);
-			path = Timesheet;
 			sourceTree = "<group>";
 		};
 		FD6FC36A2038787C001012CA /* Timesheet */ = {
 			isa = PBXGroup;
 			children = (
-				FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */,
-				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
+				FDDC10572083DF9000D8A0A6 /* Model */,
+				FDDC10562083DF7E00D8A0A6 /* View */,
+				FDDC10552083DF7300D8A0A6 /* Controller */,
 			);
 			path = Timesheet;
-			sourceTree = "<group>";
-		};
-		FD6FC36B20387948001012CA /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				FD978337203CA6A800B01901 /* LoginButton.swift */,
-				FD6FC36F20387B8E001012CA /* LoginView.swift */,
-				FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		FD6FC36C2038797A001012CA /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FD6FC36D203879BD001012CA /* LoginViewController.swift */,
+				FDDC10592083DFC900D8A0A6 /* View */,
+				FDDC10582083DFBD00D8A0A6 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -185,10 +159,6 @@
 				FDB0BF571F814CBB005AAA0F /* Activity.swift */,
 				FD3E3E791F82F92900B5D291 /* User.swift */,
 				FD3E3E7B1F83E37100B5D291 /* KimaiAPI.swift */,
-				FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */,
-				FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */,
-				FDE9C2F1205320E1009250D9 /* Credits.swift */,
-				FDF365EF205ECEFD0089212F /* TimesheetStats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +183,11 @@
 		FDD678681F7D9051002F4D33 /* Timeu */ = {
 			isa = PBXGroup;
 			children = (
+				FD6C12DA2051D4570068D584 /* Settings */,
+				FD6FC36A2038787C001012CA /* Timesheet */,
+				FDF77DDE2047018B00E7E0B3 /* TimesheetRecord Details */,
+				FD6FC36C2038797A001012CA /* Login */,
+				FDDC105C2083E0AD00D8A0A6 /* TabBar */,
 				FDB0BF561F814CA9005AAA0F /* Model */,
 				FD4BB7251F7E4E390078B749 /* View */,
 				FDD678861F7D960D002F4D33 /* Helper */,
@@ -229,11 +204,6 @@
 		FDD6787B1F7D90A3002F4D33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FD6C12DA2051D4570068D584 /* Settings */,
-				FDF77DDE2047018B00E7E0B3 /* TimesheetRecord Details */,
-				FD6FC36C2038797A001012CA /* Login */,
-				FD6FC36A2038787C001012CA /* Timesheet */,
-				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
 				FD3E3E771F82F4CF00B5D291 /* NetworkController.swift */,
 				FDE88B592080DF4F00BC1384 /* ErrorMessage.swift */,
 			);
@@ -263,20 +233,122 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		FDF77DDE2047018B00E7E0B3 /* TimesheetRecord Details */ = {
+		FDDC10532083DF4400D8A0A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD6C12DB2051D46F0068D584 /* SettingsViewController.swift */,
+				FDE9C2ED205317E7009250D9 /* OSSDetailViewController.swift */,
+				FDE9C2EF20531FFF009250D9 /* GraphicsDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDDC10542083DF5C00D8A0A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9C2F1205320E1009250D9 /* Credits.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDDC10552083DF7300D8A0A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FDD678841F7D944E002F4D33 /* TimesheetViewController.swift */,
+				FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDDC10562083DF7E00D8A0A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD6B0D21202E185000269742 /* ActivityTableView.swift */,
+				FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */,
+				FDB0BF541F81245C005AAA0F /* ActivityTableViewHeader.swift */,
+				FD6B0D27202E74E500269742 /* ActivityStatsTableViewCell.swift */,
+				FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDDC10572083DF9000D8A0A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */,
+				FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */,
+				FDF365EF205ECEFD0089212F /* TimesheetStats.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDDC10582083DFBD00D8A0A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD6FC36D203879BD001012CA /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDDC10592083DFC900D8A0A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD978337203CA6A800B01901 /* LoginButton.swift */,
+				FD6FC36F20387B8E001012CA /* LoginView.swift */,
+				FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDDC105A2083DFE600D8A0A6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				FDF77DDF204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift */,
 			);
-			path = "TimesheetRecord Details";
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		FDF77DE12047026300E7E0B3 /* TimesheetRecord Details */ = {
+		FDDC105B2083DFF200D8A0A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				FDF77DE22047029700E7E0B3 /* TimesheetRecordDetailsView.swift */,
 				FDF77DE4204708E200E7E0B3 /* TimesheetRecordDetailsCardView.swift */,
 				FDAA664E20497DE300D5C6D0 /* TimesheetRecordDetailsTimeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDDC105C2083E0AD00D8A0A6 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FDDC105E2083E0BE00D8A0A6 /* Views */,
+				FDDC105D2083E0BA00D8A0A6 /* Controller */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FDDC105D2083E0BA00D8A0A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FDD6787C1F7D90B5002F4D33 /* TabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDDC105E2083E0BE00D8A0A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */,
+				FDEC4A0320338F2300944FAE /* TabBarItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FDF77DDE2047018B00E7E0B3 /* TimesheetRecord Details */ = {
+			isa = PBXGroup;
+			children = (
+				FDDC105B2083DFF200D8A0A6 /* View */,
+				FDDC105A2083DFE600D8A0A6 /* Controller */,
 			);
 			path = "TimesheetRecord Details";
 			sourceTree = "<group>";
