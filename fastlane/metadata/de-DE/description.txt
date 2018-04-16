@@ -1,0 +1,11 @@
+Timeu ist ein moderner iOS-Client für Ihren Kimai Time Tracking Server. Mit der übersichtlichen Benutzeroberfläche ist die Zeiterfassung unterwegs so einfach und angenehm wie noch nie. Weg sind die Zeiten des klobigen alten Kimai Webinterfaces.
+
+Momentan bietet die App nur die Möglichkeit, Kimai-Einträge anzusehen. 
+
+Folgende Features werden in der kommenden Version enthalten sein:
+- Einträge hinzufügen
+- Einträge löschen
+- Einträge bearbeiten
+- Einträge duplizieren
+
+Der Quellcode von Timeu ist komplett offen, was bedeutet, dass Sie einen Blick auf den Quellcode werfen können, um einen Eindruck davon zu bekommen, wie die App umgesetzt wurde. Außerdem können Sie sogar Ihre eigenen Funktionen und Korrekturen einreichen. Der Code ist auf Github verfügbar: https://github.com/bastilimbach/timeu
