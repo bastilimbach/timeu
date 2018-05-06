@@ -1,1 +1,7 @@
+You can use the shared account of the demo instance:
 
+URL: https://demo.kimai.org/
+Username: admin
+Password: changeme
+
+You can also create your own temporary account at https://www.kimai.org/demo/
