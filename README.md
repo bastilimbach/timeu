@@ -1,6 +1,8 @@
 # Timeu - The modern [Kimai](https://www.kimai.org/) client for iOS
 With **Timeu** you can view ~~, add, edit and delete~~ your Timesheet entries from your custom Kimai server.
 
+![Screenshot](.github/screenshot.png)
+
 # To Do's
 - [x] Make the project open source
 - [x] Add [SwiftLint](https://github.com/realm/SwiftLint) ([#1](https://github.com/bastilimbach/timeu/pull/1))
