@@ -1,0 +1,53 @@
+{
+    "device_frame_version": "latest",
+    "default": {
+        "keyword": {
+            "fonts": [
+                {
+                    "font": "./fonts/Cabin-Bold.ttf",
+                    "supported": [
+                        "de-DE",
+                        "en-US"
+                    ]
+                }
+            ]
+        },
+        "title": {
+            "fonts": [
+                {
+                    "font": "./fonts/Cabin-Regular.ttf",
+                    "supported": [
+                        "de-DE",
+                        "en-US"
+                    ]
+                }
+            ],
+            "color": "#545454"
+        },
+        "background": "./background.jpg",
+        "padding": 50,
+        "stack_title": true,
+        "show_complete_frame": false
+    },
+    "data": [
+        {
+            "filter": "LoginView",
+            "keyword": {
+                "color": "#d21559"
+            },
+            "title_below_image": true
+        },
+        {
+            "filter": "TimesheetView",
+            "keyword": {
+                "color": "#feb909"
+            }
+        },
+        {
+            "filter": "RecordDetailsView",
+            "keyword": {
+                "color": "#25dcbd"
+            }
+        }
+    ]
+}

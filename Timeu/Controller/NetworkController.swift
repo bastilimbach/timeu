@@ -16,6 +16,71 @@ class NetworkController {
 
     let sessionConfig: URLSessionConfiguration
     let session: URLSession
+    private let recordsForUITesting = [
+        Activity(
+            recordId: 1,
+            description: """
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+            justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+            sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+            gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            """,
+            customerName: "Apple Inc.",
+            projectName: "iPhone Release",
+            task: "Planing",
+            startDateTime: Date.init(timeIntervalSinceNow: 0),
+            endDateTime: Date.init(timeIntervalSinceNow: 1000)
+        ),
+        Activity(
+            recordId: 2,
+            description: nil,
+            customerName: "Google LLC",
+            projectName: "Implementation of project Nano",
+            task: "Development",
+            startDateTime: Date.init(timeIntervalSinceNow: 0),
+            endDateTime: Date.init(timeIntervalSinceNow: 1000)
+        ),
+        Activity(
+            recordId: 3,
+            description: nil,
+            customerName: "Freelance Work",
+            projectName: "New website",
+            task: "Development",
+            startDateTime: Date.init(timeIntervalSinceNow: 0),
+            endDateTime: Date.init(timeIntervalSinceNow: 1000)
+        ),
+        Activity(
+            recordId: 4,
+            description: nil,
+            customerName: "Freelance Work",
+            projectName: "New website",
+            task: "Development",
+            startDateTime: Date.init(timeIntervalSinceNow: 0),
+            endDateTime: Date.init(timeIntervalSinceNow: 1000)
+        ),
+        Activity(
+            recordId: 4,
+            description: nil,
+            customerName: "Space Exploration Technologies Corp.",
+            projectName: "Falcon Heavy",
+            task: "Planing",
+            startDateTime: Date.init(timeIntervalSinceNow: 0),
+            endDateTime: Date.init(timeIntervalSinceNow: 1000)
+        )
+        ,
+        Activity(
+            recordId: 5,
+            description: nil,
+            customerName: "Space Exploration Technologies Corp.",
+            projectName: "Falcon Heavy",
+            task: "Planing",
+            startDateTime: Date.init(timeIntervalSinceNow: 0),
+            endDateTime: Date.init(timeIntervalSinceNow: 1000)
+        )
+    ]
 
     enum Result<Value> {
         case success(Value)
@@ -75,15 +140,19 @@ class NetworkController {
     func getTimesheetFor(_ user: User, completion: @escaping (Result<[Activity]>) -> Void) {
         guard let apiKey = user.apiKey else { return }
         let params = [ "apiKey": apiKey, "for": user.userName ] as [String: Any]
-        performKimai(method: "getTimesheet", withParams: params, endpoint: user.apiEndpoint) { result in
-            guard case let .success(data) = result else { return }
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .secondsSince1970
-            do {
-                let decodedResult = try decoder.decode(KimaiEntity<Activity>.self, from: data)
-                completion(.success(decodedResult.items))
-            } catch let jsonError {
-                completion(.failure(jsonError))
+        if ProcessInfo.processInfo.arguments.contains("UI-Testing") {
+            completion(.success(recordsForUITesting))
+        } else {
+            performKimai(method: "getTimesheet", withParams: params, endpoint: user.apiEndpoint) { result in
+                guard case let .success(data) = result else { return }
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
+                do {
+                    let decodedResult = try decoder.decode(KimaiEntity<Activity>.self, from: data)
+                    completion(.success(decodedResult.items))
+                } catch let jsonError {
+                    completion(.failure(jsonError))
+                }
             }
         }
     }

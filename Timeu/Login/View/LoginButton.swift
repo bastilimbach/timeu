@@ -30,6 +30,7 @@ class LoginButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        accessibilityIdentifier = "loginButton"
         setTitle("login.button.signin".localized(), for: .normal)
         titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
         backgroundColor = UIColor.init(r: 102, g: 61, b: 188, a: 1)

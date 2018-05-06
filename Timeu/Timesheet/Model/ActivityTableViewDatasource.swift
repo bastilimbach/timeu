@@ -41,7 +41,9 @@ class ActivityTableViewDatasource: NSObject, UITableViewDataSource {
         }
 
         guard let activity = row as? Activity else { return UITableViewCell() }
-        return getCell(forTimesheetRecord: activity, of: tableView)
+        let recordCell = getCell(forTimesheetRecord: activity, of: tableView)
+        recordCell.accessibilityIdentifier = "timesheetCell_\(indexPath.section)_\(indexPath.row)"
+        return recordCell
     }
 
     private func getCell(forTimesheetRecord record: Activity, of tableView: UITableView) -> ActivityTableViewCell {

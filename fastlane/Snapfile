@@ -1,10 +1,7 @@
 devices([
-  "iPhone 8",
-  "iPhone 8 Plus",
-  "iPhone SE",
   "iPhone X",
+  "iPhone 8 Plus",
   "iPad Pro (12.9-inch)",
-  "iPad Pro (9.7-inch)"
 ])
 
 languages([
@@ -12,6 +9,7 @@ languages([
   "de-DE"
 ])
 
-scheme("SchemeName")
-output_directory("./screenshots")
+scheme("TimeuUITests")
+output_directory("./fastlane/screenshots")
 clear_previous_screenshots(true)
+localize_simulator(true)
