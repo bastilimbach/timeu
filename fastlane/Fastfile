@@ -1,8 +1,24 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+
+  # before_each do
+  #   ensure_git_status_clean
+  # end
+
+  # Create new screenshots for the App Store in all languages and device types
+  # Additionally, this will add device frames around the screenshots and add the correct titles
+  lane :screenshots do
+    capture_screenshots(skip_open_summary: true)
+    frame_screenshots(white: true, path: "./fastlane/screenshots")
+  end
+
+  # Uploads metadata only - no ipa file will be uploaded
+  lane :upload_metadata do
+    upload_to_app_store(
+      skip_binary_upload: true,
+      ignore_language_directory_validation: true,
+      force: true
+    )
   end
 end

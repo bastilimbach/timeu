@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        resetStateForUITesting()
         UIApplication.shared.isStatusBarHidden = false
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
@@ -46,6 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = LoginViewController()
         return true
+    }
+
+    private func resetStateForUITesting() {
+        if ProcessInfo.processInfo.arguments.contains("UI-Testing") {
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

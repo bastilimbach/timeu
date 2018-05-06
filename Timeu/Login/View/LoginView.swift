@@ -172,6 +172,7 @@ class LoginView: UIView {
         button.titleLabel?.layer.shadowRadius = 5
         button.titleLabel?.layer.shadowOpacity = 0.8
         button.titleLabel?.layer.shadowOffset = .zero
+        button.accessibilityIdentifier = "demoButton"
         return button
     }()
 
