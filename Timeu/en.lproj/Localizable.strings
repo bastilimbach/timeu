@@ -32,6 +32,12 @@
 "timesheetRecordDetail.endTimeTitle" = "End";
 "timesheetRecordDetail.navigationTitle" = "Calendar week";
 
+// RecordCreation View
+"recordCreation.navigationTitle" = "Add entry";
+"recordCreation.accessoryView.search" = "Search %@";
+"recordCreation.accessoryView.customer" = "Customer";
+"recordCreation.accessoryView.project" = "Project";
+
 // Settings View
 "settings.navigationTitle" = "Settings";
 "settings.button.signout" = "Sign out";

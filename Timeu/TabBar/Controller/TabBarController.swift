@@ -29,13 +29,13 @@ class TabBarController: ESTabBarController {
         super.viewDidLoad()
 
         let homeVC = TimesheetViewController(currentUser: user)
-        let dummyVC = TimesheetViewController(currentUser: user)
+        let creationVC = RecordCreationController(currentUser: user)
         let settingsVC = SettingsViewController(style: .grouped)
 
         homeVC.navigationItem.title = "timesheet.navigationTitle".localized()
         homeVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "timesheetIcon"))
 
-        dummyVC.tabBarItem = ESTabBarItem(TabBarAddItemView(), title: nil, image: UIImage(named: "addActivityIcon"))
+        creationVC.tabBarItem = ESTabBarItem(TabBarAddItemView(), title: nil, image: UIImage(named: "addActivityIcon"))
 
         settingsVC.navigationItem.title = "settings.navigationTitle".localized()
         settingsVC.tabBarItem = ESTabBarItem(TabBarItemView(), title: nil, image: UIImage(named: "settingsIcon"))
@@ -46,28 +46,26 @@ class TabBarController: ESTabBarController {
         let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
         settingsNavigationController.navigationBar.prefersLargeTitles = true
 
-        _ = [homeVC, dummyVC, settingsVC].map { $0.view.backgroundColor = .timeuGray }
+        _ = [homeVC, creationVC, settingsVC].map { $0.view.backgroundColor = .timeuGray }
 
         shouldHijackHandler = { _, _, index in
-            if index == 1 {
-                return true
-            }
-            return false
+            return index == 1
         }
 
         didHijackHandler = { [weak self] _, _, _ in
-            DispatchQueue.main.async {
-                let alertView = UIAlertController.init(
-                    title: "addTimesheetRecord.comingSoon.title".localized(),
-                    message: "addTimesheetRecord.comingSoon.description".localized(),
-                    preferredStyle: .alert
-                )
-                alertView.addAction(UIAlertAction(title: "Ok", style: .cancel))
-                self?.present(alertView, animated: true)
-            }
+//            DispatchQueue.main.async {
+//                let alertView = UIAlertController.init(
+//                    title: "addTimesheetRecord.comingSoon.title".localized(),
+//                    message: "addTimesheetRecord.comingSoon.description".localized(),
+//                    preferredStyle: .alert
+//                )
+//                alertView.addAction(UIAlertAction(title: "Ok", style: .cancel))
+//                self?.present(alertView, animated: true)
+//            }
+            self?.present(UINavigationController(rootViewController: creationVC), animated: true)
         }
 
-        viewControllers = [homeNavigationController, dummyVC, settingsNavigationController]
+        viewControllers = [homeNavigationController, creationVC, settingsNavigationController]
     }
 
     override func didReceiveMemoryWarning() {

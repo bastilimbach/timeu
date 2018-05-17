@@ -16,6 +16,7 @@
 		FD45099E2031E90000CA53B9 /* TabBarAddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */; };
 		FD4BB7271F7E4E760078B749 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */; };
 		FD4BB72B1F7E62C60078B749 /* SwipeCellKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4BB72A1F7E62C60078B749 /* SwipeCellKit.framework */; };
+		FD55141C20A9BF15005D7269 /* RecordCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55141B20A9BF15005D7269 /* RecordCreationController.swift */; };
 		FD6B0D22202E185000269742 /* ActivityTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D21202E185000269742 /* ActivityTableView.swift */; };
 		FD6B0D24202E1FB800269742 /* ActivityTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */; };
 		FD6B0D26202E28B200269742 /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */; };
@@ -26,7 +27,12 @@
 		FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */; };
 		FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */; };
 		FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */; };
+		FD7B41AA20AB874600FB3FF9 /* RecordTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7B41A920AB874600FB3FF9 /* RecordTextView.swift */; };
+		FD7B41AC20ACD2CA00FB3FF9 /* RecordTextAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7B41AB20ACD2CA00FB3FF9 /* RecordTextAccessoryView.swift */; };
 		FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C27321FCB4DAE00B27803 /* SnapKit.framework */; };
+		FD8C075420AAF0560030CB21 /* RecordTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C075320AAF0560030CB21 /* RecordTextViewController.swift */; };
+		FD8C075620AAF0A60030CB21 /* CustomerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C075520AAF0A60030CB21 /* CustomerSearchController.swift */; };
+		FD8C075B20AB5A980030CB21 /* CustomerSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8C075A20AB5A980030CB21 /* CustomerSearchTableView.swift */; };
 		FD8D548520853DCC004F1C85 /* TimeuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8D548420853DCC004F1C85 /* TimeuUITests.swift */; };
 		FD978338203CA6A800B01901 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD978337203CA6A800B01901 /* LoginButton.swift */; };
 		FD97833A203CC3D800B01901 /* PasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD978339203CC3D800B01901 /* PasswordExtension.framework */; };
@@ -75,6 +81,7 @@
 		FD45099D2031E90000CA53B9 /* TabBarAddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAddItemView.swift; sourceTree = "<group>"; };
 		FD4BB7261F7E4E760078B749 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		FD4BB72A1F7E62C60078B749 /* SwipeCellKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeCellKit.framework; path = Carthage/Build/iOS/SwipeCellKit.framework; sourceTree = "<group>"; };
+		FD55141B20A9BF15005D7269 /* RecordCreationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCreationController.swift; sourceTree = "<group>"; };
 		FD6B0D21202E185000269742 /* ActivityTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableView.swift; sourceTree = "<group>"; };
 		FD6B0D23202E1FB800269742 /* ActivityTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDatasource.swift; sourceTree = "<group>"; };
 		FD6B0D25202E28B200269742 /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +92,12 @@
 		FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
 		FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewDatasource.swift; sourceTree = "<group>"; };
 		FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewCell.swift; sourceTree = "<group>"; };
+		FD7B41A920AB874600FB3FF9 /* RecordTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTextView.swift; sourceTree = "<group>"; };
+		FD7B41AB20ACD2CA00FB3FF9 /* RecordTextAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTextAccessoryView.swift; sourceTree = "<group>"; };
 		FD7C27321FCB4DAE00B27803 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		FD8C075320AAF0560030CB21 /* RecordTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTextViewController.swift; sourceTree = "<group>"; };
+		FD8C075520AAF0A60030CB21 /* CustomerSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSearchController.swift; sourceTree = "<group>"; };
+		FD8C075A20AB5A980030CB21 /* CustomerSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSearchTableView.swift; sourceTree = "<group>"; };
 		FD8D548220853DCC004F1C85 /* TimeuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8D548420853DCC004F1C85 /* TimeuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeuUITests.swift; sourceTree = "<group>"; };
 		FD8D548620853DCC004F1C85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +160,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FD55141920A9BE53005D7269 /* Creation */ = {
+			isa = PBXGroup;
+			children = (
+				FD8C075720AB53290030CB21 /* View */,
+				FD55141A20A9BEE8005D7269 /* Controller */,
+			);
+			path = Creation;
+			sourceTree = "<group>";
+		};
+		FD55141A20A9BEE8005D7269 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD55141B20A9BF15005D7269 /* RecordCreationController.swift */,
+				FD8C075320AAF0560030CB21 /* RecordTextViewController.swift */,
+				FD8C075520AAF0A60030CB21 /* CustomerSearchController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		FD6C12DA2051D4570068D584 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +205,16 @@
 				FDDC10582083DFBD00D8A0A6 /* Controller */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		FD8C075720AB53290030CB21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD8C075A20AB5A980030CB21 /* CustomerSearchTableView.swift */,
+				FD7B41A920AB874600FB3FF9 /* RecordTextView.swift */,
+				FD7B41AB20ACD2CA00FB3FF9 /* RecordTextAccessoryView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FD8D548320853DCC004F1C85 /* TimeuUITests */ = {
@@ -221,6 +262,7 @@
 				FD6C12DA2051D4570068D584 /* Settings */,
 				FD6FC36A2038787C001012CA /* Timesheet */,
 				FDF77DDE2047018B00E7E0B3 /* TimesheetRecord Details */,
+				FD55141920A9BE53005D7269 /* Creation */,
 				FD6FC36C2038797A001012CA /* Login */,
 				FDDC105C2083E0AD00D8A0A6 /* TabBar */,
 				FDB0BF561F814CA9005AAA0F /* Model */,
@@ -539,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD3E3E781F82F4CF00B5D291 /* NetworkController.swift in Sources */,
+				FD55141C20A9BF15005D7269 /* RecordCreationController.swift in Sources */,
 				FDF77DE5204708E200E7E0B3 /* TimesheetRecordDetailsCardView.swift in Sources */,
 				FDE9C2F2205320E1009250D9 /* Credits.swift in Sources */,
 				FDABA50620139C370051A32E /* Colors.swift in Sources */,
@@ -558,18 +601,23 @@
 				FD978338203CA6A800B01901 /* LoginButton.swift in Sources */,
 				FDAA664F20497DE300D5C6D0 /* TimesheetRecordDetailsTimeView.swift in Sources */,
 				FDD6786A1F7D9051002F4D33 /* AppDelegate.swift in Sources */,
+				FD7B41AC20ACD2CA00FB3FF9 /* RecordTextAccessoryView.swift in Sources */,
+				FD8C075620AAF0A60030CB21 /* CustomerSearchController.swift in Sources */,
 				FDEC4A0420338F2300944FAE /* TabBarItemView.swift in Sources */,
 				FD6FC37020387B8E001012CA /* LoginView.swift in Sources */,
 				FDE9C2EE205317E7009250D9 /* OSSDetailViewController.swift in Sources */,
 				FDF77DE0204701F900E7E0B3 /* TimesheetRecordDetailsViewController.swift in Sources */,
 				FD6B0D28202E74E500269742 /* ActivityStatsTableViewCell.swift in Sources */,
 				FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */,
+				FD7B41AA20AB874600FB3FF9 /* RecordTextView.swift in Sources */,
 				FDF77DE32047029700E7E0B3 /* TimesheetRecordDetailsView.swift in Sources */,
 				FD6C12DC2051D46F0068D584 /* SettingsViewController.swift in Sources */,
+				FD8C075420AAF0560030CB21 /* RecordTextViewController.swift in Sources */,
 				FD3E3E7A1F82F92900B5D291 /* User.swift in Sources */,
 				FD4BB7271F7E4E760078B749 /* ActivityTableViewCell.swift in Sources */,
 				FDD6787D1F7D90B5002F4D33 /* TabBarController.swift in Sources */,
 				FDE9C2F020531FFF009250D9 /* GraphicsDetailViewController.swift in Sources */,
+				FD8C075B20AB5A980030CB21 /* CustomerSearchTableView.swift in Sources */,
 				FDD678881F7D9616002F4D33 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
