@@ -12,7 +12,7 @@
 
 import UIKit
 
-class CustomerSearchTableView: UITableView {
+class SearchTableView: UITableView {
 
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -20,7 +20,7 @@ class CustomerSearchTableView: UITableView {
         separatorStyle = .none
         estimatedRowHeight = 50
         rowHeight = UITableViewAutomaticDimension
-        estimatedSectionHeaderHeight = 50
+        contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
 
     required init?(coder aDecoder: NSCoder) {

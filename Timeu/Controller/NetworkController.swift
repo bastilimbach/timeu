@@ -157,6 +157,36 @@ class NetworkController {
         }
     }
 
+    func getCustomers(for user: User, completion: @escaping (Result<[Customer]>) -> Void) {
+        guard let apiKey = user.apiKey else { return }
+        let params = [ "apiKey": apiKey] as [String: Any]
+        performKimai(method: "getCustomers", withParams: params, endpoint: user.apiEndpoint) { result in
+            guard case let .success(data) = result else { return }
+            let decoder = JSONDecoder()
+            do {
+                let decodedResult = try decoder.decode(KimaiEntity<Customer>.self, from: data)
+                completion(.success(decodedResult.items))
+            } catch let jsonError {
+                completion(.failure(jsonError))
+            }
+        }
+    }
+
+    func getProjects(for user: User, completion: @escaping (Result<[Proj]>) -> Void) {
+        guard let apiKey = user.apiKey else { return }
+        let params = [ "apiKey": apiKey] as [String: Any]
+        performKimai(method: "getProjects", withParams: params, endpoint: user.apiEndpoint) { result in
+            guard case let .success(data) = result else { return }
+            let decoder = JSONDecoder()
+            do {
+                let decodedResult = try decoder.decode(KimaiEntity<Proj>.self, from: data)
+                completion(.success(decodedResult.items))
+            } catch let jsonError {
+                completion(.failure(jsonError))
+            }
+        }
+    }
+
     private func performKimai(method: String, withParams params: [String: Any], endpoint: URL,
                               completion: @escaping (Result<Data>) -> Void) {
         DispatchQueue.global().async {

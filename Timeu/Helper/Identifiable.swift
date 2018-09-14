@@ -1,5 +1,5 @@
 //
-//  CustomerSearchController.swift
+//  ReusableIdentifier.swift
 //  Timeu
 // 	
 //  Copyright © 2018 Sebastian Limbach (https://sebastianlimbach.com/). 
@@ -10,13 +10,14 @@
 //  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //  
 
-import UIKit
+import Foundation
 
-class CustomerSearchController: UIViewController {
+protocol Identifiable: class {
+    static var reuseIdentifier: String { get }
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view = CustomerSearchTableView()
+extension Identifiable {
+    static var reuseIdentifier: String {
+        return String(describing: self)
     }
-
 }

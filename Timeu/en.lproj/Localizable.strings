@@ -68,3 +68,5 @@
 "error.message.endpointConnectionError" = "Couldn't connect to the enpoint";
 "error.message.noTimesheetRecords" = "No records found";
 "error.message.couldntReceiveRecords" = "Couldn't get timesheet records";
+"error.message.couldntReceiveCustomer" = "Couldn't get customers";
+"error.message.couldntReceiveProjects" = "Couldn't get projects";

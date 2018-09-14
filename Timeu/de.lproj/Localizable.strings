@@ -68,3 +68,5 @@
 "error.message.endpointConnectionError" = "Konnte keine Verbindung zu Kimai herstellen";
 "error.message.noTimesheetRecords" = "Keine Einträge gefunden";
 "error.message.couldntReceiveRecords" = "Konnte keine Einträge vom Server laden";
+"error.message.couldntReceiveCustomer" = "Konnte keine Kunden finden";
+"error.message.couldntReceiveProjects" = "Konnte keine Projekte finden";

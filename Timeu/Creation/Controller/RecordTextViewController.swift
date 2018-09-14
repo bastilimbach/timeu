@@ -52,7 +52,7 @@ class RecordTextViewController: UIViewController {
 
     private lazy var textView: RecordTextView = {
         let textView = RecordTextView()
-        textView.intrinsicContentHeight = 80
+//        textView.intrinsicContentHeight = 80
         textView.delegate = self
         return textView
     }()
@@ -93,7 +93,22 @@ class RecordTextViewController: UIViewController {
         currentSearch = type
         searchKeyIndex = index
         accessoryView.accessoryDescription = type.searchString()
+        textView.intrinsicContentHeight = 80
         delegate?.recordTextView(textView, didBeginSearchFor: type)
+    }
+
+    private func endSearch() {
+        currentSearch = nil
+        accessoryView.accessoryDescription = nil
+        textView.intrinsicContentHeight = 180
+        delegate?.didEndSearch(textView)
+    }
+
+    func deleteSearchText() {
+        if let index = searchKeyIndex {
+            textView.text = String(textView.text[..<textView.text.index(before: index)])
+            endSearch()
+        }
     }
 
 }
@@ -119,10 +134,8 @@ extension RecordTextViewController: UITextViewDelegate {
         guard let original = textView.text.last else { return true }
         let disallowedCharacters = ["\n", "@", "#"]
         if original == "@" || original == "#" {
-            if text == "" {
-                currentSearch = nil
-                accessoryView.accessoryDescription = nil
-                delegate?.didEndSearch(textView)
+            if text.isEmpty {
+                endSearch()
             }
         }
         if currentSearch != nil {

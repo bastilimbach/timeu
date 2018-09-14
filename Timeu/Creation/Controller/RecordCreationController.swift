@@ -13,9 +13,12 @@
 import UIKit
 
 final class RecordCreationController: UIViewController {
-    private let currentUser: User?
+    private let currentUser: User
+    private var selectedCustomer: Customer?
+    private var selectedProject: Proj?
 
-    private let informationController = CustomerSearchController()
+    private let searchController = SearchController()
+    private let informationsController = RecordInformationViewController()
     private lazy var textViewController: RecordTextViewController = {
         let controller = RecordTextViewController()
         controller.delegate = self
@@ -46,11 +49,23 @@ final class RecordCreationController: UIViewController {
 
         addViews()
         setupConstraints()
+
+        searchController.selectionHandler = { item in
+            if let customer = item as? Customer {
+                self.selectedCustomer = customer
+            }
+
+            if let project = item as? Proj {
+                self.selectedProject = project
+            }
+            self.textViewController.deleteSearchText()
+        }
     }
 
     private func addViews() {
         view.addSubview(stackView)
         addContentController(textViewController, to: stackView)
+        addContentController(informationsController, to: stackView)
     }
 
     private func setupConstraints() {
@@ -79,14 +94,42 @@ final class RecordCreationController: UIViewController {
 
 extension RecordCreationController: RecordTextViewDelegate {
     func recordTextView(_ textView: UITextView, didChangeSearchTermAt index: String.Index, for type: SearchType) {
-        print(textView.text[index...])
+        let searchString = String(textView.text[index...])
+        searchController.search(searchString)
     }
 
     func recordTextView(_ textView: UITextView, didBeginSearchFor type: SearchType) {
-        addContentController(informationController, to: stackView)
+        removeContentController(informationsController, from: stackView)
+        addContentController(searchController, to: stackView)
+
+        switch type {
+        case .customer:
+            NetworkController.shared.getCustomers(for: currentUser) { result in
+                switch result {
+                case .success(let customers):
+                    DispatchQueue.main.async {
+                        self.searchController.results = customers
+                    }
+                case .failure:
+                    ErrorMessage.show(message: "error.message.couldntReceiveCustomer".localized())
+                }
+            }
+        case .project:
+            NetworkController.shared.getProjects(for: currentUser) { result in
+                switch result {
+                case .success(let projects):
+                    DispatchQueue.main.async {
+                        self.searchController.results = projects
+                    }
+                case .failure:
+                    ErrorMessage.show(message: "error.message.couldntReceiveProjects".localized())
+                }
+            }
+        }
     }
 
     func didEndSearch(_ textView: UITextView) {
-        removeContentController(informationController, from: stackView)
+        removeContentController(searchController, from: stackView)
+        addContentController(informationsController, to: stackView)
     }
 }
