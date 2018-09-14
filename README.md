@@ -1,4 +1,9 @@
 # Timeu - The modern [Kimai](https://www.kimai.org/) client for iOS
+
+> ⚠️ **The development of Timeu is currently on hold**!
+>
+> [Kimai2](https://github.com/kevinpapst/kimai2), a complete rewrite of the original Kimai, is in full development. Due to this, the API is completely different and not yet fully implemented. I plan to ship Timeu with support for Kimai2 and drop the old Kimai API. You can check out the progress of the conversion on the [kimai2 branch](https://github.com/bastilimbach/timeu/tree/kimai2).
+
 With **Timeu** you can view ~~, add, edit and delete~~ your Timesheet entries from your custom Kimai server.
 
 ![Screenshot](.github/screenshot.png)
@@ -6,6 +11,7 @@ With **Timeu** you can view ~~, add, edit and delete~~ your Timesheet entries fr
 # To Do's
 - [x] Make the project open source
 - [x] Add [SwiftLint](https://github.com/realm/SwiftLint) ([#1](https://github.com/bastilimbach/timeu/pull/1))
+- [x] Add [fastlane](https://github.com/fastlane/fastlane) for automatic screenshot creation
 - [ ] Add [fastlane](https://github.com/fastlane/fastlane) for automatic App Store deployment
 - [ ] Add Tests
 - [ ] Add rudimentary continuous integration
