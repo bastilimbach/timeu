@@ -21,7 +21,11 @@ With **Timeu** you can view ~~, add, edit and delete~~ your Timesheet entries fr
 
 # Build from source
 1. Clone the repository: `git clone https://github.com/bastilimbach/timeu`
-2. Install dependencies: `carthage update --platform iOS`
+2. Install the [Carthage](https://github.com/Carthage/Carthage) dependency manager
+3. Install the iOS dependencies: `carthage update --platform iOS`
+4. Install [SwiftLint](https://github.com/realm/SwiftLint)
+
+> You might need to change the team and bundle identifier to run the project.
 
 # Why am I building this?
 1. Finally getting one of my swift based side projects onto the App Store.
