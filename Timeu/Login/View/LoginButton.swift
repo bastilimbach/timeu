@@ -15,7 +15,7 @@ import UIKit
 class LoginButton: UIButton {
 
     struct ButtonState {
-        var state: UIControlState
+        var state: UIControl.State
         var title: String?
         var image: UIImage?
     }
@@ -75,7 +75,7 @@ class LoginButton: UIButton {
     func showLoading() {
         activityIndicator.startAnimating()
         var buttonStates: [ButtonState] = []
-        for state in [UIControlState.disabled] {
+        for state in [UIControl.State.disabled] {
             let buttonState = ButtonState(state: state, title: title(for: state), image: image(for: state))
             buttonStates.append(buttonState)
             setTitle("", for: state)

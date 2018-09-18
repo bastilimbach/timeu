@@ -21,7 +21,7 @@ class ActivityTableViewDelegate: NSObject, UITableViewDelegate {
         if section == 0 {
             return CGFloat.leastNonzeroMagnitude
         }
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

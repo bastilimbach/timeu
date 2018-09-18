@@ -19,12 +19,12 @@ class ActivityTableView: UITableView {
         case activityStatsCell = "tableViewCellWithCollectionView"
     }
 
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         backgroundColor = .timeuGray
         separatorStyle = .none
         estimatedRowHeight = 50
-        rowHeight = UITableViewAutomaticDimension
+        rowHeight = UITableView.automaticDimension
         estimatedSectionHeaderHeight = 50
         refreshControl = UIRefreshControl()
 

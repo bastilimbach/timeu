@@ -188,7 +188,7 @@ class LoginView: UIView {
         addSubview(backgroundImageView)
         addSubview(appLogoView)
         addSubview(scrollView)
-        bringSubview(toFront: appLogoView)
+        bringSubviewToFront(appLogoView)
         scrollView.addSubview(contentView)
         contentView.addSubview(kimaiURLInput)
         contentView.addSubview(usernameInput)

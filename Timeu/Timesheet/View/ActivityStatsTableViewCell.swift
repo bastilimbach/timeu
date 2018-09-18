@@ -18,7 +18,7 @@ class ActivityStatsTableViewCell: UITableViewCell {
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         layout.minimumInteritemSpacing = 20
         layout.minimumLineSpacing = 20
@@ -29,7 +29,7 @@ class ActivityStatsTableViewCell: UITableViewCell {
         return collectionView
     }()
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         selectionStyle = .none

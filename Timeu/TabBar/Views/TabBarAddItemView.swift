@@ -31,7 +31,7 @@ class TabBarAddItemView: ESTabBarItemContentView {
 
         let transform = CGAffineTransform.identity
         imageView.transform = transform
-        superview?.bringSubview(toFront: self)
+        superview?.bringSubviewToFront(self)
 
         insets = UIEdgeInsets(top: -22, left: 0, bottom: 0, right: 0)
         iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
