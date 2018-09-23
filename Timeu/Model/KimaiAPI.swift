@@ -39,13 +39,3 @@ extension KimaiEntity: Decodable {
     }
 
 }
-
-struct KimaiAPIInfo: Codable {
-    let title: String
-    let description: String
-    let version: Double
-}
-
-struct KimaiAPIMetadata: Codable {
-    let info: KimaiAPIInfo
-}
