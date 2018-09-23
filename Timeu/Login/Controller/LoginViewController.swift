@@ -111,10 +111,10 @@ class LoginViewController: UIViewController {
 
         let api = kimaiURL.appendingPathComponent("api")
         let user = User(userName: userName, apiEndpoint: api, apiKey: password)
-        NetworkController.shared.ping(url: api, with: user) { result in
+        NetworkController.shared.ping(url: api, with: user) { [weak self] result in
             defer {
                 DispatchQueue.main.async {
-                    self.loginView.loginButton.hideLoading()
+                    self?.loginView.loginButton.hideLoading()
                 }
             }
 
@@ -126,7 +126,7 @@ class LoginViewController: UIViewController {
                         forKey: "currentUser"
                     )
                     DispatchQueue.main.async {
-                        self.present(TabBarController(currentUser: user), animated: true)
+                        self?.present(TabBarController(currentUser: user), animated: true)
                     }
                 } else {
                     ErrorMessage.show(
