@@ -85,7 +85,7 @@ class LoginView: UIView {
         fieldView.layer.shadowOffset = CGSize(width: fieldView.frame.width, height: fieldView.frame.height + 5)
         fieldView.layer.shadowRadius = 5
         fieldView.textField.tag = 1
-        fieldView.textField.placeholder = "https://demo.kimai.org/"
+        fieldView.textField.placeholder = "https://demo-v2.kimai.org/"
         fieldView.textField.keyboardType = .URL
         fieldView.textField.returnKeyType = .next
         fieldView.textField.autocorrectionType = .no

@@ -40,14 +40,12 @@ extension KimaiEntity: Decodable {
 
 }
 
-struct APIKey: Codable {
-    let apiKey: String
+struct KimaiAPIInfo: Codable {
+    let title: String
+    let description: String
+    let version: Double
 }
 
 struct KimaiAPIMetadata: Codable {
-    let transport: String
-    let envelope: String
-    let contentType: String
-    let SMDVersion: String
-    let target: String
+    let info: KimaiAPIInfo
 }

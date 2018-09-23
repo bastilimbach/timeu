@@ -78,9 +78,9 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func insertDemoCredentials(sender: UIButton) {
-        loginView.kimaiURL = URL(string: "https://demo.kimai.org/")!
+        loginView.kimaiURL = URL(string: "https://demo-v2.kimai.org/")!
         loginView.username = "admin"
-        loginView.password = "changeme"
+        loginView.password = "api"
     }
 
     @objc private func login(sender: UIButton) {
@@ -88,17 +88,17 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func showPasswordExtensions() {
-        var searchURL = "https://demo.kimai.org/"
+        var searchURL = "https://demo-v2.kimai.org/"
         if let kimaiURL = loginView.kimaiURL {
             searchURL = String(describing: kimaiURL)
         }
 
         PasswordExtension.shared.findLoginDetails(for: searchURL, viewController: self,
                                                   sender: nil) { [weak self] loginDetails, _ in
-            if let loginDetails = loginDetails {
-                self?.loginView.username = loginDetails.username
-                self?.loginView.password = loginDetails.password
-            }
+                                                    if let loginDetails = loginDetails {
+                                                        self?.loginView.username = loginDetails.username
+                                                        self?.loginView.password = loginDetails.password
+                                                    }
         }
     }
 
@@ -109,51 +109,38 @@ class LoginViewController: UIViewController {
 
         loginView.loginButton.showLoading()
 
-        validateKimaiAPIEndpoint(startingWith: kimaiURL) { [weak self] endpoint in
+        let api = kimaiURL.appendingPathComponent("api")
+        let user = User(userName: userName, apiEndpoint: api, apiKey: password)
+        NetworkController.shared.ping(url: api, with: user) { result in
             defer {
                 DispatchQueue.main.async {
-                    self?.loginView.loginButton.hideLoading()
+                    self.loginView.loginButton.hideLoading()
                 }
             }
 
-            guard let apiEndpoint = endpoint else { return }
-
-            NetworkController.shared.getTokenFor(userName, withPassword: password, endpoint: apiEndpoint) { result in
-                switch result {
-                case .success(let result):
-                    let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: result.apiKey)
+            switch result {
+            case .success(let ping):
+                if ping.message == "pong" {
                     UserDefaults.standard.set(
                         ["username": user.userName, "endpoint": String(describing: user.apiEndpoint)],
                         forKey: "currentUser"
                     )
                     DispatchQueue.main.async {
-                        self?.present(TabBarController(currentUser: user), animated: true)
+                        self.present(TabBarController(currentUser: user), animated: true)
                     }
-                case .failure:
-                    ErrorMessage.show(message: "error.message.wrongCredentials".localized())
-                }
-            }
-        }
-    }
-
-    private func validateKimaiAPIEndpoint(startingWith baseURL: URL, completion: @escaping (_ endpoint: URL?) -> Void) {
-        let apiURL = baseURL.appendingPathComponent("core/json.php")
-        NetworkController.shared.getAPIMetadata(fromURL: apiURL) { result in
-            switch result {
-            case .success(let metadata):
-                if metadata.envelope == "JSON-RPC-2.0" {
-                    completion(apiURL)
                 } else {
                     ErrorMessage.show(
-                        message: "\("error.message.unsupportedVersion".localized()): \(metadata.envelope)"
+                        message: "\("error.message.unsupportedVersion".localized()): \(ping.version)"
                     )
-                    completion(nil)
                 }
-            case .failure:
-                ErrorMessage.show(message: "error.message.endpointConnectionError".localized())
-                completion(nil)
+            case .failure(let error):
+                switch error {
+                case .invalidCredentials:
+                    ErrorMessage.show(message: "error.message.wrongCredentials".localized())
+                default:
+                    ErrorMessage.show(message: "error.message.endpointConnectionError".localized())
+                }
             }
-
         }
     }
 

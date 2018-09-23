@@ -26,6 +26,7 @@
 		FD6FC3722038B5D7001012CA /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */; };
 		FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */; };
 		FD748F09202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */; };
+		FD75B4402157C71B003E64B8 /* Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD75B43F2157C71B003E64B8 /* Ping.swift */; };
 		FD7C27341FCB4EA100B27803 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C27321FCB4DAE00B27803 /* SnapKit.framework */; };
 		FD8D548520853DCC004F1C85 /* TimeuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8D548420853DCC004F1C85 /* TimeuUITests.swift */; };
 		FD978338203CA6A800B01901 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD978337203CA6A800B01901 /* LoginButton.swift */; };
@@ -85,6 +86,7 @@
 		FD6FC3712038B5D7001012CA /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
 		FD748F06202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewDatasource.swift; sourceTree = "<group>"; };
 		FD748F08202F3A6F004D27D5 /* ActivityStatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsCollectionViewCell.swift; sourceTree = "<group>"; };
+		FD75B43F2157C71B003E64B8 /* Ping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ping.swift; sourceTree = "<group>"; };
 		FD7C27321FCB4DAE00B27803 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		FD8D548220853DCC004F1C85 /* TimeuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8D548420853DCC004F1C85 /* TimeuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeuUITests.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				FDB0BF571F814CBB005AAA0F /* Activity.swift */,
 				FD3E3E791F82F92900B5D291 /* User.swift */,
 				FD3E3E7B1F83E37100B5D291 /* KimaiAPI.swift */,
+				FD75B43F2157C71B003E64B8 /* Ping.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				FD748F07202F2D46004D27D5 /* ActivityStatsCollectionViewDatasource.swift in Sources */,
 				FD45099E2031E90000CA53B9 /* TabBarAddItemView.swift in Sources */,
 				FDB0BF551F81245C005AAA0F /* ActivityTableViewHeader.swift in Sources */,
+				FD75B4402157C71B003E64B8 /* Ping.swift in Sources */,
 				FD6FC36E203879BD001012CA /* LoginViewController.swift in Sources */,
 				FDB0BF581F814CBB005AAA0F /* Activity.swift in Sources */,
 				FDE88B5A2080DF4F00BC1384 /* ErrorMessage.swift in Sources */,
