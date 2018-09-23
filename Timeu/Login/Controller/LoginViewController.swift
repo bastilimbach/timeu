@@ -78,9 +78,10 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func insertDemoCredentials(sender: UIButton) {
-        loginView.kimaiURL = URL(string: "https://demo-v2.kimai.org/")!
-        loginView.username = "admin"
-        loginView.password = "api"
+//        loginView.kimaiURL = URL(string: "https://demo-v2.kimai.org/")!
+        loginView.kimaiURL = URL(string: "http://localhost:8000/")!
+        loginView.username = "anna_admin"
+        loginView.password = "api_kitten"
     }
 
     @objc private func login(sender: UIButton) {
@@ -95,10 +96,10 @@ class LoginViewController: UIViewController {
 
         PasswordExtension.shared.findLoginDetails(for: searchURL, viewController: self,
                                                   sender: nil) { [weak self] loginDetails, _ in
-                                                    if let loginDetails = loginDetails {
-                                                        self?.loginView.username = loginDetails.username
-                                                        self?.loginView.password = loginDetails.password
-                                                    }
+            if let loginDetails = loginDetails {
+                self?.loginView.username = loginDetails.username
+                self?.loginView.password = loginDetails.password
+            }
         }
     }
 
@@ -111,7 +112,7 @@ class LoginViewController: UIViewController {
 
         let api = kimaiURL.appendingPathComponent("api")
         let user = User(userName: userName, apiEndpoint: api, apiKey: password)
-        NetworkController.shared.ping(url: api, with: user) { [weak self] result in
+        NetworkController.shared.checkVersion(for: api, with: user) { [weak self] result in
             defer {
                 DispatchQueue.main.async {
                     self?.loginView.loginButton.hideLoading()
@@ -119,8 +120,8 @@ class LoginViewController: UIViewController {
             }
 
             switch result {
-            case .success(let ping):
-                if ping.message == "pong" {
+            case .success(let metadata):
+                if metadata.version == "0.5" {
                     UserDefaults.standard.set(
                         ["username": user.userName, "endpoint": String(describing: user.apiEndpoint)],
                         forKey: "currentUser"
@@ -130,7 +131,7 @@ class LoginViewController: UIViewController {
                     }
                 } else {
                     ErrorMessage.show(
-                        message: "\("error.message.unsupportedVersion".localized()): \(ping.version)"
+                        message: "\("error.message.unsupportedVersion".localized()): \(metadata.version)"
                     )
                 }
             case .failure(let error):

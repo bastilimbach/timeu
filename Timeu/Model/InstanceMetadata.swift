@@ -1,5 +1,5 @@
 //
-//  Ping.swift
+//  InstanceMetadata.swift
 //  Timeu
 // 	
 //  Copyright © 2018 Sebastian Limbach (https://sebastianlimbach.com/). 
@@ -12,7 +12,9 @@
 
 import Foundation
 
-struct Ping: Codable {
-    let message: String
-    let version: Double?
+struct InstanceMetadata: Codable {
+    let version: String
+    let status: String
+    let name: String
+    let copyright: String
 }

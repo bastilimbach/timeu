@@ -103,10 +103,10 @@ class NetworkController {
 
     // MARK: - API Services
 
-    /// Ping Kimai endpoint
-    func ping(url kimaiURL: URL, with user: User, completion: @escaping (Result<Ping>) -> Void) {
+    /// Check version of kimai instance
+    func checkVersion(for kimaiURL: URL, with user: User, completion: @escaping (Result<InstanceMetadata>) -> Void) {
         DispatchQueue.global().async {
-            let pingEndpoint = kimaiURL.appendingPathComponent("ping")
+            let pingEndpoint = kimaiURL.appendingPathComponent("version")
             var request = URLRequest(url: pingEndpoint)
             request.httpMethod = "GET"
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -127,7 +127,7 @@ class NetworkController {
                 }
                 let decoder = JSONDecoder()
                 do {
-                    let metadata = try decoder.decode(Ping.self, from: data)
+                    let metadata = try decoder.decode(InstanceMetadata.self, from: data)
                     completion(.success(metadata))
                 } catch let jsonError {
                     completion(.failure(.invalidResponse(jsonError)))
