@@ -78,8 +78,8 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func insertDemoCredentials(sender: UIButton) {
-//        loginView.kimaiURL = URL(string: "https://demo-v2.kimai.org/")!
-        loginView.kimaiURL = URL(string: "http://localhost:8000/")!
+        loginView.kimaiURL = URL(string: "https://demo-v2.kimai.org/")!
+//        loginView.kimaiURL = URL(string: "http://localhost:8000/")!
         loginView.username = "anna_admin"
         loginView.password = "api_kitten"
     }
