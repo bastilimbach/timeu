@@ -121,7 +121,7 @@ class LoginViewController: UIViewController {
 
             switch result {
             case .success(let metadata):
-                if metadata.version == "0.5" {
+                if metadata.version >= 0.5 {
                     UserDefaults.standard.set(
                         ["username": user.userName, "endpoint": String(describing: user.apiEndpoint)],
                         forKey: "currentUser"

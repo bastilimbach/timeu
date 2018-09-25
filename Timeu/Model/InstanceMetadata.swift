@@ -13,8 +13,9 @@
 import Foundation
 
 struct InstanceMetadata: Codable {
-    let version: String
-    let status: String
+    let version: Double
+    let candidate: String
+    let semver: String
     let name: String
     let copyright: String
 }
