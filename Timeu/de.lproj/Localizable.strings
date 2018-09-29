@@ -32,6 +32,12 @@
 "timesheetRecordDetail.endTimeTitle" = "Ende";
 "timesheetRecordDetail.navigationTitle" = "Kalenderwoche";
 
+// RecordCreation View
+"recordCreation.navigationTitle" = "Eintrag hinzufügen";
+"recordCreation.accessoryView.search" = "%@ suchen";
+"recordCreation.accessoryView.customer" = "Kunde";
+"recordCreation.accessoryView.project" = "Projekt";
+
 // Settings View
 "settings.navigationTitle" = "Einstellungen";
 "settings.button.signout" = "Ausloggen";
@@ -62,3 +68,5 @@
 "error.message.endpointConnectionError" = "Konnte keine Verbindung zu Kimai herstellen";
 "error.message.noTimesheetRecords" = "Keine Einträge gefunden";
 "error.message.couldntReceiveRecords" = "Konnte keine Einträge vom Server laden";
+"error.message.couldntReceiveCustomer" = "Konnte keine Kunden finden";
+"error.message.couldntReceiveProjects" = "Konnte keine Projekte finden";
