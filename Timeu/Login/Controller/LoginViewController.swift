@@ -78,9 +78,10 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func insertDemoCredentials(sender: UIButton) {
-        loginView.kimaiURL = URL(string: "https://demo.kimai.org/")!
-        loginView.username = "admin"
-        loginView.password = "changeme"
+        loginView.kimaiURL = URL(string: "https://demo-v2.kimai.org/")!
+//        loginView.kimaiURL = URL(string: "http://localhost:8000/")!
+        loginView.username = "anna_admin"
+        loginView.password = "api_kitten"
     }
 
     @objc private func login(sender: UIButton) {
@@ -88,7 +89,7 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func showPasswordExtensions() {
-        var searchURL = "https://demo.kimai.org/"
+        var searchURL = "https://demo-v2.kimai.org/"
         if let kimaiURL = loginView.kimaiURL {
             searchURL = String(describing: kimaiURL)
         }
@@ -109,19 +110,20 @@ class LoginViewController: UIViewController {
 
         loginView.loginButton.showLoading()
 
-        validateKimaiAPIEndpoint(startingWith: kimaiURL) { [weak self] endpoint in
+        let api = kimaiURL.appendingPathComponent("api")
+        let user = User(userName: userName, apiEndpoint: api, apiKey: password)
+        NetworkController.shared.checkVersion(for: api, with: user) { [weak self] result in
             defer {
                 DispatchQueue.main.async {
                     self?.loginView.loginButton.hideLoading()
                 }
             }
 
-            guard let apiEndpoint = endpoint else { return }
-
-            NetworkController.shared.getTokenFor(userName, withPassword: password, endpoint: apiEndpoint) { result in
-                switch result {
-                case .success(let result):
-                    let user = User(userName: userName, apiEndpoint: apiEndpoint, apiKey: result.apiKey)
+            switch result {
+            case .success(let metadata):
+                let minimumRequiredVersion = Bundle.main.object(forInfoDictionaryKey: "MinimumRequiredKimaiVersion")
+                    as? String ?? "0.5.0"
+                if metadata.version.compare(minimumRequiredVersion, options: .numeric) != .orderedAscending {
                     UserDefaults.standard.set(
                         ["username": user.userName, "endpoint": String(describing: user.apiEndpoint)],
                         forKey: "currentUser"
@@ -129,31 +131,19 @@ class LoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         self?.present(TabBarController(currentUser: user), animated: true)
                     }
-                case .failure:
-                    ErrorMessage.show(message: "error.message.wrongCredentials".localized())
-                }
-            }
-        }
-    }
-
-    private func validateKimaiAPIEndpoint(startingWith baseURL: URL, completion: @escaping (_ endpoint: URL?) -> Void) {
-        let apiURL = baseURL.appendingPathComponent("core/json.php")
-        NetworkController.shared.getAPIMetadata(fromURL: apiURL) { result in
-            switch result {
-            case .success(let metadata):
-                if metadata.envelope == "JSON-RPC-2.0" {
-                    completion(apiURL)
                 } else {
                     ErrorMessage.show(
-                        message: "\("error.message.unsupportedVersion".localized()): \(metadata.envelope)"
+                        message: "\("error.message.unsupportedVersion".localized()): \(metadata.version)"
                     )
-                    completion(nil)
                 }
-            case .failure:
-                ErrorMessage.show(message: "error.message.endpointConnectionError".localized())
-                completion(nil)
+            case .failure(let error):
+                switch error {
+                case .invalidCredentials:
+                    ErrorMessage.show(message: "error.message.wrongCredentials".localized())
+                default:
+                    ErrorMessage.show(message: "error.message.endpointConnectionError".localized())
+                }
             }
-
         }
     }
 

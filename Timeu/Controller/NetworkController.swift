@@ -84,7 +84,14 @@ class NetworkController {
 
     enum Result<Value> {
         case success(Value)
-        case failure(Error)
+        case failure(APIError)
+    }
+
+    enum APIError: Error {
+        case invalidCredentials(Error?)
+        case noResponse(Error?)
+        case invalidResponse(Error?)
+        case requestError(Error?)
     }
 
     static let shared = NetworkController()
@@ -96,43 +103,37 @@ class NetworkController {
 
     // MARK: - API Services
 
-    /// Get metadata for entered kimai endpoint
-    func getAPIMetadata(fromURL: URL, completion: @escaping (Result<KimaiAPIMetadata>) -> Void) {
+    /// Check version of kimai instance
+    func checkVersion(for kimaiURL: URL, with user: User, completion: @escaping (Result<InstanceMetadata>) -> Void) {
         DispatchQueue.global().async {
-            var request = URLRequest(url: fromURL)
+            let pingEndpoint = kimaiURL.appendingPathComponent("version")
+            var request = URLRequest(url: pingEndpoint)
             request.httpMethod = "GET"
-            request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue(user.userName, forHTTPHeaderField: "X-AUTH-USER")
+            if let authToken = user.apiKey {
+                request.addValue(authToken, forHTTPHeaderField: "X-AUTH-TOKEN")
+            }
 
-            let task = self.session.dataTask(with: request) { (data, _, error) in
+            let task = self.session.dataTask(with: request) { (data, response, error) in
+                guard let httpResponse = response as? HTTPURLResponse,
+                    200..<300 ~= httpResponse.statusCode else {
+                    completion(.failure(.invalidCredentials(error)))
+                    return
+                }
                 guard let data = data else {
-                    completion(.failure(error!))
+                    completion(.failure(.noResponse(error)))
                     return
                 }
                 let decoder = JSONDecoder()
                 do {
-                    let metadata = try decoder.decode(KimaiAPIMetadata.self, from: data)
+                    let metadata = try decoder.decode(InstanceMetadata.self, from: data)
                     completion(.success(metadata))
                 } catch let jsonError {
-                    completion(.failure(jsonError))
+                    completion(.failure(.invalidResponse(jsonError)))
                 }
             }
             task.resume()
-        }
-    }
-
-    /// Get api key for a specific user
-    func getTokenFor(_ userName: String, withPassword password: String, endpoint: URL,
-                     completion: @escaping (Result<APIKey>) -> Void) {
-        let params = [ "username": userName, "password": password ] as [String: Any]
-        performKimai(method: "authenticate", withParams: params, endpoint: endpoint) { result in
-            guard case let .success(data) = result else { return }
-            let decoder = JSONDecoder()
-            do {
-                let decodedResult = try decoder.decode(KimaiEntity<APIKey>.self, from: data)
-                completion(.success(decodedResult.items[0]))
-            } catch let jsonError {
-                completion(.failure(jsonError))
-            }
         }
     }
 
@@ -151,7 +152,7 @@ class NetworkController {
                     let decodedResult = try decoder.decode(KimaiEntity<Activity>.self, from: data)
                     completion(.success(decodedResult.items))
                 } catch let jsonError {
-                    completion(.failure(jsonError))
+                    completion(.failure(.invalidResponse(jsonError)))
                 }
             }
         }
@@ -172,7 +173,7 @@ class NetworkController {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: bodyObject, options: [])
             } catch let jsonError {
-                completion(.failure(jsonError))
+                completion(.failure(.invalidResponse(jsonError)))
             }
 
             let task = self.session.dataTask(with: request) { (data, response, error) in
@@ -180,7 +181,7 @@ class NetworkController {
                     let httpResp = response as? HTTPURLResponse,
                     200..<300 ~= httpResp.statusCode else {
                         if let error = error {
-                            completion(.failure(error))
+                            completion(.failure(.requestError(error)))
                             print("Request error: \(error)")
                         }
                         if let response = response as? HTTPURLResponse {
