@@ -121,7 +121,9 @@ class LoginViewController: UIViewController {
 
             switch result {
             case .success(let metadata):
-                if metadata.version >= 0.5 {
+                let minimumRequiredVersion = Bundle.main.object(forInfoDictionaryKey: "MinimumRequiredKimaiVersion")
+                    as? String ?? "0.5.0"
+                if metadata.version.compare(minimumRequiredVersion, options: .numeric) != .orderedAscending {
                     UserDefaults.standard.set(
                         ["username": user.userName, "endpoint": String(describing: user.apiEndpoint)],
                         forKey: "currentUser"
